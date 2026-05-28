@@ -1,360 +1,1656 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="description" content="TechNest BD — Smart Gadget & Tech Store. Best deals on smartphones, laptops, headphones, smartwatches and accessories in Bangladesh.">
-  <title>TechNest BD — Smart Gadget & Tech Store</title>
-  <!-- Tailwind CSS v4 + Google Fonts -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
-  <style>
-    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background-color: #020617; color: #f1f5f9; }
-    ::-webkit-scrollbar { width: 6px; height: 6px; }
-    ::-webkit-scrollbar-track { background: #1e293b; }
-    ::-webkit-scrollbar-thumb { background: #06b6d4; border-radius: 10px; }
-    *:focus-visible { outline: 2px solid #06b6d4; outline-offset: 2px; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechNest BD — Smart Gadget & Tech Store</title>
+    <meta name="description" content="বাংলাদেশের সেরা অনলাইন টেক স্টোর - স্মার্টফোন, ল্যাপটপ, হেডফোন এবং গেমিং গিয়ার।">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary: #06b6d4;
+            --primary-dark: #0891b2;
+            --secondary: #3b82f6;
+            --secondary-light: #8b5cf6;
+            --bg-dark: #0a0e1a;
+            --bg-card: rgba(255, 255, 255, 0.03);
+            --text-white: #ffffff;
+            --text-gray-light: #94a3b8;
+            --text-gray-mid: #64748b;
+            --text-gray-dark: #475569;
+            --red: #f43f5e;
+            --pink: #ec4899;
+            --amber: #f59e0b;
+            --green: #10b981;
+            --danger: #ef4444;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans Bengali', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-white);
+            line-height: 1.6;
+        }
+
+        /* ========== PROMO BAR ========== */
+        .promo-bar {
+            background: linear-gradient(90deg, var(--primary), var(--secondary-light), var(--pink));
+            background-size: 200% 100%;
+            animation: shimmer 3s ease infinite;
+            padding: 12px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-white);
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 100% 0%; }
+            100% { background-position: 0% 0%; }
+        }
+
+        /* ========== HEADER ========== */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(10, 14, 26, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 14px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            transition: box-shadow 0.3s;
+        }
+
+        header.scrolled {
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--text-white);
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 20px;
+            color: white;
+            box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
+        }
+
+        .logo-text h1 {
+            font-size: 18px;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .logo-text p {
+            font-size: 10px;
+            color: var(--text-gray-mid);
+            margin: 2px 0 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .search-bar {
+            flex: 1;
+            max-width: 400px;
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 8px 12px;
+            gap: 8px;
+        }
+
+        .search-bar input {
+            flex: 1;
+            background: none;
+            border: none;
+            color: var(--text-white);
+            outline: none;
+            font-size: 13px;
+        }
+
+        .search-bar input::placeholder {
+            color: var(--text-gray-mid);
+        }
+
+        .search-svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--text-gray-mid);
+            cursor: pointer;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .cart-btn {
+            position: relative;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            transition: transform 0.3s;
+        }
+
+        .cart-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--primary);
+            color: white;
+            font-size: 10px;
+            font-weight: 700;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-white);
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .search-bar {
+                display: none;
+            }
+            .hamburger {
+                display: block;
+            }
+        }
+
+        /* ========== MOBILE MENU ========== */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 14, 26, 0.97);
+            backdrop-filter: blur(20px);
+            z-index: 200;
+            flex-direction: column;
+            padding-top: 60px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+        }
+
+        .mobile-menu a {
+            color: var(--text-white);
+            text-decoration: none;
+            padding: 16px 0;
+            font-size: 16px;
+            font-weight: 500;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-menu-close {
+            position: absolute;
+            top: 14px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: var(--text-white);
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        /* ========== HERO SECTION ========== */
+        #home {
+            background: var(--bg-dark);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        .hero-text h2 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        @media (max-width: 768px) {
+            .hero-text h2 {
+                font-size: 32px;
+            }
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(6, 182, 212, 0.2);
+            border: 1px solid rgba(6, 182, 212, 0.4);
+            color: var(--primary);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .hero-desc {
+            font-size: 16px;
+            color: var(--text-gray-light);
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 28px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            box-shadow: 0 8px 25px rgba(6, 182, 212, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(6, 182, 212, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-white);
+            border: 2px solid var(--text-gray-light);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            margin-top: 20px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--text-gray-mid);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 4px;
+        }
+
+        .hero-featured {
+            background: var(--bg-card);
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            border-radius: 20px;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: linear-gradient(135deg, var(--pink), var(--red));
+            color: white;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .featured-image {
+            width: 100%;
+            height: 280px;
+            background: rgba(6, 182, 212, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+
+        .featured-info {
+            padding: 0 16px;
+        }
+
+        .featured-label {
+            font-size: 10px;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .featured-name {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .featured-spec {
+            font-size: 12px;
+            color: var(--text-gray-mid);
+            margin-bottom: 16px;
+        }
+
+        .featured-price {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .featured-price del {
+            font-size: 14px;
+            color: var(--text-gray-mid);
+            margin-right: 8px;
+            text-decoration: line-through;
+        }
+
+        .featured-btn {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border: none;
+            color: white;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .featured-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(6, 182, 212, 0.3);
+        }
+
+        /* ========== FEATURES SECTION ========== */
+        .features {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            border-color: var(--primary);
+            background: rgba(6, 182, 212, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 12px;
+        }
+
+        .feature-card h3 {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .feature-card p {
+            font-size: 12px;
+            color: var(--text-gray-mid);
+            line-height: 1.6;
+        }
+
+        /* ========== CATEGORIES SECTION ========== */
+        #categories {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-label {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.2), rgba(139, 92, 246, 0.2));
+            color: var(--primary);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .view-all {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .categories-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .category-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: var(--text-white);
+        }
+
+        .category-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 35px rgba(6, 182, 212, 0.2);
+        }
+
+        .category-icon {
+            font-size: 48px;
+            margin-bottom: 12px;
+        }
+
+        .category-name {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .category-count {
+            font-size: 12px;
+            color: var(--text-gray-mid);
+        }
+
+        /* ========== FLASH DEALS SECTION ========== */
+        #deals {
+            background: linear-gradient(135deg, var(--pink), #f97316);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 1200px;
+            margin: 80px auto;
+            color: white;
+            text-align: center;
+        }
+
+        .deals-title {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .deals-desc {
+            font-size: 14px;
+            margin-bottom: 24px;
+            opacity: 0.9;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .countdown-item {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 16px 12px;
+            min-width: 60px;
+        }
+
+        .countdown-num {
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .countdown-label {
+            font-size: 10px;
+            opacity: 0.8;
+            margin-top: 4px;
+            text-transform: uppercase;
+        }
+
+        /* ========== PRODUCTS SECTION ========== */
+        #products {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+
+        .filter-tabs {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 40px;
+            overflow-x: auto;
+            padding-bottom: 8px;
+        }
+
+        .filter-tab {
+            padding: 10px 20px;
+            border: 2px solid rgba(6, 182, 212, 0.3);
+            background: transparent;
+            color: var(--text-white);
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 13px;
+            white-space: nowrap;
+            transition: all 0.3s;
+        }
+
+        .filter-tab.active {
+            border-color: var(--primary);
+            background: var(--primary);
+            color: white;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .product-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .product-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 35px rgba(6, 182, 212, 0.2);
+        }
+
+        .product-image {
+            width: 100%;
+            aspect-ratio: 1;
+            background: rgba(6, 182, 212, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 56px;
+            position: relative;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            padding: 6px 12px;
+            border-radius: 50px;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .badge-hot {
+            background: var(--red);
+            color: white;
+        }
+
+        .badge-new {
+            background: var(--primary);
+            color: white;
+        }
+
+        .badge-sale {
+            background: var(--amber);
+            color: white;
+        }
+
+        .badge-bestseller {
+            background: var(--amber);
+            color: white;
+        }
+
+        .wishlist-btn {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 18px;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .wishlist-btn:hover {
+            background: rgba(244, 63, 94, 0.5);
+            border-color: var(--red);
+        }
+
+        .product-info {
+            padding: 16px;
+        }
+
+        .product-brand {
+            font-size: 10px;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .product-name {
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .product-rating {
+            font-size: 12px;
+            margin-bottom: 8px;
+        }
+
+        .product-rating-star {
+            color: var(--amber);
+        }
+
+        .product-rating-count {
+            color: var(--text-gray-mid);
+        }
+
+        .product-price {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .product-price-current {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-white);
+        }
+
+        .product-price-old {
+            font-size: 12px;
+            color: var(--text-gray-mid);
+            text-decoration: line-through;
+        }
+
+        .product-cart-btn {
+            width: 100%;
+            padding: 10px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-weight: 600;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .product-cart-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(6, 182, 212, 0.3);
+        }
+
+        /* ========== NEWSLETTER SECTION ========== */
+        .newsletter {
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.15), rgba(139, 92, 246, 0.15));
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 500px;
+            margin: 80px auto;
+            text-align: center;
+        }
+
+        .newsletter-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .newsletter h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .newsletter p {
+            font-size: 13px;
+            color: var(--text-gray-mid);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 8px;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px 16px;
+            background: var(--bg-card);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            border-radius: 8px;
+            color: var(--text-white);
+            outline: none;
+            font-size: 13px;
+        }
+
+        .newsletter-form input::placeholder {
+            color: var(--text-gray-mid);
+        }
+
+        .newsletter-form input:focus {
+            border-color: var(--primary);
+        }
+
+        .newsletter-form button {
+            padding: 12px 20px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border: none;
+            color: white;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        .newsletter-form button:hover {
+            transform: translateY(-2px);
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            background: rgba(10, 14, 26, 0.5);
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 60px 20px 20px;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto 40px;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        .footer-col h4 {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .footer-col-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .footer-col-brand .logo-icon {
+            width: 36px;
+            height: 36px;
+            font-size: 18px;
+        }
+
+        .footer-col-brand h3 {
+            font-size: 16px;
+            margin: 0;
+        }
+
+        .footer-desc {
+            font-size: 12px;
+            color: var(--text-gray-mid);
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .footer-col a {
+            display: block;
+            font-size: 12px;
+            color: var(--text-gray-mid);
+            text-decoration: none;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: var(--primary);
+        }
+
+        .footer-col p {
+            font-size: 12px;
+            color: var(--text-gray-mid);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: var(--text-gray-mid);
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-bottom a {
+            color: var(--text-gray-mid);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-bottom a:hover {
+            color: var(--primary);
+        }
+
+        /* ========== FLOATING ELEMENTS ========== */
+        .floating-cart {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 22px;
+            cursor: pointer;
+            box-shadow: 0 8px 30px rgba(6, 182, 212, 0.35);
+            z-index: 90;
+            transition: all 0.3s;
+        }
+
+        .floating-cart:hover {
+            transform: scale(1.1);
+        }
+
+        .floating-cart-badge {
+            position: absolute;
+            top: -6px;
+            right: -6px;
+            background: var(--red);
+            color: white;
+            font-size: 10px;
+            font-weight: 700;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* ========== TOAST ========== */
+        .toast {
+            position: fixed;
+            bottom: 100px;
+            right: 24px;
+            background: var(--bg-dark);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            color: var(--text-white);
+            padding: 14px 18px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            animation: slideUp 0.3s ease forwards;
+            z-index: 95;
+            max-width: 250px;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* ========== HIDDEN CLASS ========== */
+        .hidden {
+            display: none !important;
+        }
+    </style>
 </head>
-<body class="bg-slate-950 text-slate-100 antialiased">
-<div id="root"></div>
-
-<script src="https://cdn.jsdelivr.net/npm/react@19.2.6/umd/react.development.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/react-dom@19.2.6/umd/react-dom.development.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/babel-standalone@6.26.0/babel.min.js"></script>
-
-<script type="text/babel" data-presets="react,typescript">
-
-// ==================== সকল আইকন কম্পোনেন্ট (Lucide React থেকে কনভার্ট করা) ====================
-const Search = () => (<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>);
-const ShoppingCart = () => (<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>);
-const Heart = () => (<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>);
-const User = () => (<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>);
-const Menu = () => (<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>);
-const X = () => (<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>);
-const Smartphone = () => (<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>);
-const Laptop = () => (<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9"/><path d="M2 16h20"/></svg>);
-const Headphones = () => (<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 12h1a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H3"/><path d="M21 12h-1a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1"/><path d="M12 3a9 9 0 0 0-9 9v5"/><path d="M12 3a9 9 0 0 1 9 9v5"/></svg>);
-const Watch = () => (<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="6" y="8" width="12" height="12" rx="2"/><path d="M9 4v4M15 4v4"/></svg>);
-const Camera = () => (<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><circle cx="12" cy="12" r="3"/><path d="M8 2h8"/></svg>);
-const Gamepad2 = () => (<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 11h4M8 9v4"/><path d="M15 12h.01"/><path d="M18 10h.01"/><path d="M6.5 5.5 3 9v6l3.5 3.5"/><path d="m17.5 5.5 3.5 3.5v6l-3.5 3.5"/></svg>);
-const Star = () => (<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>);
-const Truck = () => (<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.62l-3.16-3.95A1 1 0 0 0 17.77 9H15"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg>);
-const ShieldCheck = () => (<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>);
-const CreditCard = () => (<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>);
-const HeadphonesIcon = () => (<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 12h1a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H3"/><path d="M21 12h-1a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1"/><path d="M12 3a9 9 0 0 0-9 9v5"/><path d="M12 3a9 9 0 0 1 9 9v5"/></svg>);
-const ArrowRight = () => (<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>);
-const Zap = () => (<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M13 2 3 14h8l-2 8 10-12h-8z"/></svg>);
-const Send = () => (<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 2 11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>);
-const MapPin = () => (<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>);
-const Phone = () => (<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>);
-const Mail = () => (<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg>);
-const Facebook = () => (<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.51 1.49-3.9 3.78-3.9 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.77l-.44 2.89h-2.33v6.99A10 10 0 0 0 22 12z"/></svg>);
-const Instagram = () => (<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>);
-const Youtube = () => (<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg>);
-
-// ==================== ডাটা (সম্পূর্ণ, কোনো লাইন বাদ নেই) ====================
-const categories = [
-  { name: "Smartphones", icon: Smartphone, count: 128, color: "from-sky-500 to-blue-600" },
-  { name: "Laptops", icon: Laptop, count: 64, color: "from-violet-500 to-purple-600" },
-  { name: "Headphones", icon: Headphones, count: 95, color: "from-pink-500 to-rose-600" },
-  { name: "Smartwatches", icon: Watch, count: 52, color: "from-emerald-500 to-teal-600" },
-  { name: "Cameras", icon: Camera, count: 31, color: "from-amber-500 to-orange-600" },
-  { name: "Gaming", icon: Gamepad2, count: 47, color: "from-red-500 to-rose-600" },
-];
-
-const products = [
-  { id: 1, name: "iPhone 15 Pro Max 256GB", brand: "Apple", price: 189000, oldPrice: 205000, rating: 4.9, reviews: 324, image: "📱", badge: "Hot", category: "Smartphones" },
-  { id: 2, name: "MacBook Air M3 15-inch", brand: "Apple", price: 175000, oldPrice: 195000, rating: 4.8, reviews: 189, image: "💻", badge: "-10%", category: "Laptops" },
-  { id: 3, name: "Sony WH-1000XM5", brand: "Sony", price: 38500, oldPrice: 45000, rating: 4.9, reviews: 512, image: "🎧", badge: "Bestseller", category: "Headphones" },
-  { id: 4, name: "Apple Watch Ultra 2", brand: "Apple", price: 98000, rating: 4.7, reviews: 156, image: "⌚", badge: "New", category: "Smartwatches" },
-  { id: 5, name: "Samsung Galaxy S24 Ultra", brand: "Samsung", price: 152000, oldPrice: 168000, rating: 4.8, reviews: 421, image: "📱", category: "Smartphones" },
-  { id: 6, name: "Sony Alpha A7 IV Mirrorless", brand: "Sony", price: 285000, rating: 4.9, reviews: 87, image: "📷", badge: "Pro", category: "Cameras" },
-  { id: 7, name: "ASUS ROG Strix G16", brand: "ASUS", price: 142000, oldPrice: 160000, rating: 4.6, reviews: 203, image: "🎮", category: "Gaming" },
-  { id: 8, name: "AirPods Pro 2nd Gen", brand: "Apple", price: 26500, oldPrice: 30000, rating: 4.8, reviews: 678, image: "🎵", badge: "-12%", category: "Headphones" },
-];
-
-const brands = ["Apple", "Samsung", "Sony", "Asus", "Xiaomi", "OnePlus", "Dell", "HP", "Lenovo", "JBL"];
-
-const features = [
-  { icon: Truck, title: "Free Delivery", desc: "ঢাকার ভেতরে ফ্রি ডেলিভারি এবং সারা দেশে দ্রুত শিপিং" },
-  { icon: ShieldCheck, title: "Official Warranty", desc: "সব প্রোডাক্টে অফিসিয়াল ব্র্যান্ড ওয়ারেন্টি" },
-  { icon: CreditCard, title: "Secure Payment", desc: "bKash, Nagad, Card, COD সহ সব পেমেন্ট অপশন" },
-  { icon: HeadphonesIcon, title: "24/7 Support", desc: "যেকোনো সমস্যায় আমাদের সাপোর্ট টিম সবসময় প্রস্তুত" },
-];
-
-function formatBDT(n) { return "৳ " + n.toLocaleString("en-US"); }
-
-// ==================== রেটিং কম্পোনেন্ট ====================
-const Rating = ({ value, reviews }) => (
-  <div className="flex items-center gap-1 text-xs text-slate-400">
-    <Star className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
-    <span className="font-medium text-slate-200">{value.toFixed(1)}</span>
-    <span>({reviews})</span>
-  </div>
-);
-
-// ==================== প্রোডাক্ট কার্ড ====================
-const ProductCard = ({ p }) => (
-  <div className="group relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/60 backdrop-blur transition hover:-translate-y-1 hover:border-cyan-500/50 hover:shadow-2xl hover:shadow-cyan-500/10">
-    <div className="relative flex h-48 items-center justify-center bg-gradient-to-br from-slate-800 to-slate-900 text-7xl sm:h-56">
-      <span className="transition duration-500 group-hover:scale-110">{p.image}</span>
-      {p.badge && <span className="absolute left-3 top-3 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 px-3 py-1 text-xs font-semibold text-white shadow-lg">{p.badge}</span>}
-      <button className="absolute right-3 top-3 grid h-9 w-9 place-items-center rounded-full bg-slate-800/80 text-slate-300 backdrop-blur transition hover:bg-rose-500 hover:text-white"><Heart /></button>
+<body>
+    <!-- PROMO BAR -->
+    <div class="promo-bar">
+        🎉 Eid Special Offer — সব প্রোডাক্টে ৩০% পর্যন্ত ছাড়! কোড: TECHNEST30
     </div>
-    <div className="p-4">
-      <p className="text-[11px] font-medium uppercase tracking-wider text-cyan-400">{p.brand}</p>
-      <h3 className="mt-1 line-clamp-1 font-semibold text-white">{p.name}</h3>
-      <div className="mt-2"><Rating value={p.rating} reviews={p.reviews} /></div>
-      <div className="mt-3 flex items-end justify-between">
-        <div><div className="text-lg font-bold text-white">{formatBDT(p.price)}</div>{p.oldPrice && <div className="text-xs text-slate-500 line-through">{formatBDT(p.oldPrice)}</div>}</div>
-        <button className="grid h-9 w-9 place-items-center rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-lg transition hover:scale-105"><ShoppingCart /></button>
-      </div>
-    </div>
-  </div>
-);
 
-// ==================== টাইম বক্স ====================
-const TimeBox = ({ value, label }) => (
-  <div className="flex flex-col items-center">
-    <div className="min-w-[54px] rounded-lg bg-white px-2 py-2 text-center text-lg font-bold text-slate-900 shadow-md sm:text-xl">{String(value).padStart(2, "0")}</div>
-    <span className="mt-1 text-[10px] font-medium uppercase tracking-wider text-white/80 sm:text-xs">{label}</span>
-  </div>
-);
+    <!-- HEADER -->
+    <header id="header">
+        <div class="logo">
+            <div class="logo-icon">T</div>
+            <div class="logo-text">
+                <h1>TechNest BD</h1>
+                <p>Smart Gadget Store</p>
+            </div>
+        </div>
 
-// ==================== কাউন্টডাউন হুক (useCountdown ইমুলেশন) ====================
-const useCountdown = (target) => {
-  const [time, setTime] = React.useState(() => Math.max(0, target - Date.now()));
-  React.useEffect(() => {
-    const id = setInterval(() => { const diff = target - Date.now(); setTime(diff > 0 ? diff : 0); }, 1000);
-    return () => clearInterval(id);
-  }, [target]);
-  const h = Math.floor(time / 3_600_000);
-  const m = Math.floor((time % 3_600_000) / 60_000);
-  const s = Math.floor((time % 60_000) / 1000);
-  return { h, m, s };
-};
+        <div class="search-bar">
+            <svg class="search-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+            </svg>
+            <input type="text" id="searchInput" placeholder="প্রোডাক্ট সার্চ করুন...">
+        </div>
 
-// ==================== মূল অ্যাপ কম্পোনেন্ট (সম্পূর্ণ, ২০০+ লাইন) ====================
-const App = () => {
-  const [menuOpen, setMenuOpen] = React.useState(false);
-  const [activeCat, setActiveCat] = React.useState("All");
-  const [cartCount] = React.useState(3);
-  const [email, setEmail] = React.useState("");
-  const [subscribed, setSubscribed] = React.useState(false);
-
-  const target = (() => { const now = new Date(); const next = new Date(now); next.setHours(24, 0, 0, 0); return next.getTime(); })();
-  const { h, m, s } = useCountdown(target);
-  const filtered = activeCat === "All" ? products : products.filter(p => p.category === activeCat);
-
-  return (
-    <div className="min-h-screen bg-slate-950 text-slate-100">
-      {/* Background glow */}
-      <div className="pointer-events-none fixed inset-0 overflow-hidden">
-        <div className="absolute -top-40 -left-40 h-96 w-96 rounded-full bg-cyan-500/20 blur-3xl" />
-        <div className="absolute top-1/3 -right-40 h-96 w-96 rounded-full bg-violet-500/20 blur-3xl" />
-      </div>
-
-      {/* Announcement bar */}
-      <div className="relative z-10 bg-gradient-to-r from-cyan-600 via-blue-600 to-violet-600 py-2 text-center text-xs font-medium text-white sm:text-sm">
-        🎉 Eid Special Offer — সব প্রোডাক্টে ৩০% পর্যন্ত ছাড়! কোড: <span className="font-bold">TECHNEST30</span>
-      </div>
-
-      {/* Navbar */}
-      <header className="sticky top-0 z-40 border-b border-slate-800/80 bg-slate-950/80 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-2">
-            <button onClick={() => setMenuOpen(!menuOpen)} className="mr-2 grid h-10 w-10 place-items-center rounded-lg border border-slate-800 lg:hidden">{menuOpen ? <X /> : <Menu />}</button>
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 shadow-lg shadow-cyan-500/30"><span className="text-lg font-black text-white">T</span></div>
-            <div><h1 className="text-lg font-bold leading-none tracking-tight text-white">TechNest<span className="text-cyan-400"> BD</span></h1><p className="text-[10px] font-medium uppercase tracking-widest text-slate-400">Smart Gadget Store</p></div>
-          </div>
-          <nav className="hidden items-center gap-8 text-sm font-medium text-slate-300 lg:flex">
-            <a href="#" className="text-white hover:text-cyan-400">Home</a>
-            <a href="#categories" className="hover:text-cyan-400">Categories</a>
-            <a href="#products" className="hover:text-cyan-400">Products</a>
-            <a href="#deals" className="hover:text-cyan-400">Deals</a>
-            <a href="#contact" className="hover:text-cyan-400">Contact</a>
-          </nav>
-          <div className="flex items-center gap-2 sm:gap-3">
-            <button className="hidden h-10 w-10 place-items-center rounded-lg border border-slate-800 text-slate-300 hover:border-cyan-500 hover:text-cyan-400 sm:grid"><Search /></button>
-            <button className="hidden h-10 w-10 place-items-center rounded-lg border border-slate-800 text-slate-300 hover:border-cyan-500 hover:text-cyan-400 sm:grid"><User /></button>
-            <button className="relative grid h-10 w-10 place-items-center rounded-lg border border-slate-800 text-slate-300 hover:border-cyan-500 hover:text-cyan-400">
-              <ShoppingCart />
-              {cartCount > 0 && <span className="absolute -right-1 -top-1 grid h-5 w-5 place-items-center rounded-full bg-cyan-500 text-[10px] font-bold text-white">{cartCount}</span>}
+        <div class="header-actions">
+            <button class="cart-btn" onclick="scrollToTop()">
+                🛒
+                <div class="cart-badge" id="headerCartBadge">0</div>
             </button>
-          </div>
+            <button class="hamburger" onclick="toggleMobileMenu()">☰</button>
         </div>
-        {menuOpen && (
-          <nav className="border-t border-slate-800 bg-slate-950 px-4 py-4 lg:hidden">
-            <div className="flex flex-col gap-3 text-sm font-medium">
-              <a href="#" className="py-2">Home</a>
-              <a href="#categories" className="py-2">Categories</a>
-              <a href="#products" className="py-2">Products</a>
-              <a href="#deals" className="py-2">Deals</a>
-              <a href="#contact" className="py-2">Contact</a>
-            </div>
-          </nav>
-        )}
-      </header>
+    </header>
 
-      <main className="relative z-10">
-        {/* Hero */}
-        <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-20">
-          <div className="grid items-center gap-10 lg:grid-cols-2">
-            <div>
-              <span className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-1.5 text-xs font-medium text-cyan-300"><Zap /> নতুন কালেকশন এসেছে</span>
-              <h2 className="mt-6 text-4xl font-black leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">Smart Gadgets, <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-violet-400 bg-clip-text text-transparent">Smart Prices</span></h2>
-              <p className="mt-5 max-w-lg text-base text-slate-300 sm:text-lg">বাংলাদেশের সবচেয়ে বিশ্বস্ত টেক স্টোর থেকে কিনুন লেটেস্ট স্মার্টফোন, ল্যাপটপ, হেডফোন এবং গেমিং গিয়ার — অফিসিয়াল ওয়ারেন্টি ও ক্যাশ অন ডেলিভারি সহ।</p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <a href="#products" className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-cyan-500/30 transition hover:scale-105">Shop Now <ArrowRight /></a>
-                <a href="#deals" className="inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:border-cyan-500">View Deals</a>
-              </div>
-              <div className="mt-10 grid max-w-md grid-cols-3 gap-6 border-t border-slate-800 pt-6">
-                <div><div className="text-2xl font-bold text-white">50K+</div><div className="text-xs text-slate-400">Happy Customers</div></div>
-                <div><div className="text-2xl font-bold text-white">1000+</div><div className="text-xs text-slate-400">Products</div></div>
-                <div><div className="text-2xl font-bold text-white">4.9★</div><div className="text-xs text-slate-400">Rating</div></div>
-              </div>
-            </div>
-            <div className="relative">
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-cyan-500/30 to-violet-500/30 blur-2xl" />
-              <div className="relative rounded-3xl border border-slate-800 bg-slate-900/50 p-6 backdrop-blur-xl sm:p-10">
-                <div className="absolute -top-3 -right-3 rounded-full bg-gradient-to-r from-rose-500 to-pink-500 px-3 py-1 text-xs font-bold text-white shadow-lg">SAVE ৳16,000</div>
-                <div className="flex items-center justify-center text-[10rem] sm:text-[12rem]">📱</div>
-                <div className="mt-2 text-center">
-                  <p className="text-xs font-medium uppercase tracking-widest text-cyan-400">Featured Product</p>
-                  <h3 className="mt-1 text-xl font-bold text-white sm:text-2xl">iPhone 15 Pro Max</h3>
-                  <p className="mt-1 text-sm text-slate-400">Titanium Design · A17 Pro Chip</p>
-                  <div className="mt-4 flex items-center justify-center gap-3">
-                    <span className="text-sm text-slate-500 line-through">{formatBDT(205000)}</span>
-                    <span className="text-2xl font-bold text-white">{formatBDT(189000)}</span>
-                  </div>
-                  <button className="mt-5 w-full rounded-full bg-white py-3 text-sm font-bold text-slate-900 transition hover:bg-cyan-400">Add to Cart</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Categories */}
-        <section id="categories" className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
-          <div className="mb-8 flex items-end justify-between">
-            <div><p className="text-sm font-semibold uppercase tracking-widest text-cyan-400">Browse</p><h3 className="mt-1 text-3xl font-bold text-white sm:text-4xl">Shop by Category</h3></div>
-            <a href="#" className="hidden text-sm font-medium text-cyan-400 hover:text-cyan-300 sm:block">View All <ArrowRight /></a>
-          </div>
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
-            {categories.map(c => (
-              <button key={c.name} onClick={() => { setActiveCat(c.name); document.getElementById("products")?.scrollIntoView({ behavior: "smooth" }); }} className="group relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/60 p-5 text-left transition hover:-translate-y-1 hover:border-cyan-500/50">
-                <div className={`mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${c.color} shadow-lg`}><c.icon /></div>
-                <h4 className="font-semibold text-white">{c.name}</h4>
-                <p className="mt-1 text-xs text-slate-400">{c.count} products</p>
-              </button>
-            ))}
-          </div>
-        </section>
-
-        {/* Flash Deals */}
-        <section id="deals" className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
-          <div className="relative overflow-hidden rounded-3xl border border-slate-800 bg-gradient-to-br from-rose-600 via-pink-600 to-orange-500 p-6 sm:p-10">
-            <div className="absolute -top-20 -right-20 h-64 w-64 rounded-full bg-yellow-400/30 blur-3xl" />
-            <div className="relative flex flex-col items-start justify-between gap-6 lg:flex-row lg:items-center">
-              <div className="flex items-center gap-3">
-                <div className="grid h-12 w-12 place-items-center rounded-full bg-white/20 backdrop-blur"><Zap /></div>
-                <div><h3 className="text-2xl font-black text-white sm:text-3xl">⚡ Flash Deals</h3><p className="text-sm text-white/90">সীমিত সময়ের জন্য বিশেষ অফার</p></div>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="hidden text-sm font-semibold text-white sm:inline">শেষ হচ্ছে:</span>
-                <TimeBox value={h} label="Hours" /><span className="text-2xl font-bold text-white">:</span>
-                <TimeBox value={m} label="Min" /><span className="text-2xl font-bold text-white">:</span>
-                <TimeBox value={s} label="Sec" />
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Products */}
-        <section id="products" className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
-          <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-            <div><p className="text-sm font-semibold uppercase tracking-widest text-cyan-400">Featured</p><h3 className="mt-1 text-3xl font-bold text-white sm:text-4xl">Best Selling Products</h3></div>
-            <div className="flex flex-wrap gap-2">
-              {["All", "Smartphones", "Laptops", "Headphones", "Smartwatches"].map(cat => (
-                <button key={cat} onClick={() => setActiveCat(cat)} className={`rounded-full px-4 py-2 text-xs font-semibold transition ${activeCat === cat ? "bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-lg" : "border border-slate-800 bg-slate-900 text-slate-300 hover:border-cyan-500"}`}>{cat}</button>
-              ))}
-            </div>
-          </div>
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {filtered.map(p => <ProductCard key={p.id} p={p} />)}
-          </div>
-          {filtered.length === 0 && <div className="rounded-2xl border border-slate-800 bg-slate-900/60 py-16 text-center text-slate-400">No products in this category yet.</div>}
-        </section>
-
-        {/* Brand marquee */}
-        <section className="border-y border-slate-800 bg-slate-900/40 py-8">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <p className="mb-4 text-center text-xs font-semibold uppercase tracking-widest text-slate-400">Trusted by the world's best brands</p>
-            <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4">{brands.map(b => <span key={b} className="text-xl font-bold tracking-wider text-slate-500 transition hover:text-white">{b}</span>)}</div>
-          </div>
-        </section>
-
-        {/* Features */}
-        <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {features.map(f => (
-              <div key={f.title} className="rounded-2xl border border-slate-800 bg-slate-900/60 p-6 transition hover:border-cyan-500/50">
-                <div className="mb-4 grid h-12 w-12 place-items-center rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600"><f.icon /></div>
-                <h4 className="font-bold text-white">{f.title}</h4>
-                <p className="mt-1 text-sm text-slate-400">{f.desc}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Newsletter */}
-        <section id="contact" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-          <div className="relative overflow-hidden rounded-3xl border border-slate-800 bg-slate-900 p-8 sm:p-12">
-            <div className="absolute -top-20 -left-20 h-64 w-64 rounded-full bg-cyan-500/20 blur-3xl" />
-            <div className="absolute -bottom-20 -right-20 h-64 w-64 rounded-full bg-violet-500/20 blur-3xl" />
-            <div className="relative mx-auto max-w-2xl text-center">
-              <Mail /><h3 className="mt-4 text-3xl font-bold text-white sm:text-4xl">Stay updated with TechNest</h3>
-              <p className="mt-3 text-slate-300">নতুন প্রোডাক্ট, এক্সক্লুসিভ ডিল এবং অফার সরাসরি আপনার ইনবক্সে পান।</p>
-              <form onSubmit={(e) => { e.preventDefault(); if (email) setSubscribed(true); }} className="mx-auto mt-6 flex max-w-md flex-col gap-3 sm:flex-row">
-                <input type="email" required value={email} onChange={e => setEmail(e.target.value)} placeholder="you@example.com" className="flex-1 rounded-full border border-slate-700 bg-slate-950 px-5 py-3 text-sm text-white placeholder:text-slate-500 focus:border-cyan-500 focus:outline-none" />
-                <button type="submit" className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:scale-105">Subscribe <Send /></button>
-              </form>
-              {subscribed && <p className="mt-4 text-sm font-medium text-emerald-400">✓ ধন্যবাদ! সফলভাবে সাবস্ক্রাইব হয়েছে।</p>}
-            </div>
-          </div>
-        </section>
-      </main>
-
-      {/* Footer */}
-      <footer className="relative z-10 border-t border-slate-800 bg-slate-950">
-        <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-2 lg:grid-cols-4 lg:px-8">
-          <div>
-            <div className="flex items-center gap-2">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600"><span className="text-lg font-black text-white">T</span></div>
-              <div><div className="font-bold text-white">TechNest BD</div><div className="text-[10px] uppercase tracking-widest text-slate-400">Smart Gadget Store</div></div>
-            </div>
-            <p className="mt-4 text-sm text-slate-400">বাংলাদেশের অন্যতম সেরা অনলাইন টেকনোলজি রিটেইলার। ২০২০ সাল থেকে আমরা আপনাদের পাশে আছি।</p>
-            <div className="mt-5 flex gap-3">
-              <a href="#" className="grid h-9 w-9 place-items-center rounded-lg border border-slate-800 text-slate-400 transition hover:border-cyan-500 hover:text-cyan-400"><Facebook /></a>
-              <a href="#" className="grid h-9 w-9 place-items-center rounded-lg border border-slate-800 text-slate-400 transition hover:border-cyan-500 hover:text-cyan-400"><Instagram /></a>
-              <a href="#" className="grid h-9 w-9 place-items-center rounded-lg border border-slate-800 text-slate-400 transition hover:border-cyan-500 hover:text-cyan-400"><Youtube /></a>
-            </div>
-          </div>
-          <div><h5 className="mb-4 font-semibold text-white">Quick Links</h5><ul className="space-y-2 text-sm text-slate-400"><li><a href="#" className="hover:text-cyan-400">About Us</a></li><li><a href="#" className="hover:text-cyan-400">Contact</a></li><li><a href="#" className="hover:text-cyan-400">Blog</a></li><li><a href="#" className="hover:text-cyan-400">Careers</a></li></ul></div>
-          <div><h5 className="mb-4 font-semibold text-white">Customer Service</h5><ul className="space-y-2 text-sm text-slate-400"><li><a href="#" className="hover:text-cyan-400">Track Order</a></li><li><a href="#" className="hover:text-cyan-400">Return Policy</a></li><li><a href="#" className="hover:text-cyan-400">Warranty</a></li><li><a href="#" className="hover:text-cyan-400">FAQs</a></li></ul></div>
-          <div><h5 className="mb-4 font-semibold text-white">Get in Touch</h5><ul className="space-y-3 text-sm text-slate-400"><li className="flex items-start gap-2"><MapPin /><span>House 24, Road 11, Banani, Dhaka-1213</span></li><li className="flex items-center gap-2"><Phone /><span>+880 1700-123456</span></li><li className="flex items-center gap-2"><Mail /><span>support@technestbd.com</span></li></ul></div>
-        </div>
-        <div className="border-t border-slate-800"><div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-4 py-5 text-xs text-slate-500 sm:flex-row sm:px-6 lg:px-8"><p>© 2026 TechNest BD. All rights reserved.</p><div className="flex gap-4"><a href="#" className="hover:text-cyan-400">Privacy</a><a href="#" className="hover:text-cyan-400">Terms</a><a href="#" className="hover:text-cyan-400">Cookies</a></div></div></div>
-      </footer>
-
-      {/* Floating cart mobile */}
-      <button className="fixed bottom-5 right-5 z-50 grid h-14 w-14 place-items-center rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-2xl shadow-cyan-500/40 lg:hidden"><ShoppingCart />{cartCount > 0 && <span className="absolute -right-1 -top-1 grid h-5 w-5 place-items-center rounded-full bg-rose-500 text-[10px] font-bold">{cartCount}</span>}</button>
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-menu-close" onclick="toggleMobileMenu()">✕</button>
+        <a href="#home" onclick="closeMobileMenu()">🏠 হোম</a>
+        <a href="#categories" onclick="closeMobileMenu()">📦 প্রোডাক্টস</a>
+        <a href="#categories" onclick="closeMobileMenu()">🏷️ ক্যাটাগরি</a>
+        <a href="#deals" onclick="closeMobileMenu()">⚡ ফ্ল্যাশ ডিল</a>
+        <a href="#contact" onclick="closeMobileMenu()">📞 যোগাযোগ</a>
     </div>
-  );
-};
 
-ReactDOM.createRoot(document.getElementById("root")).render(<App />);
-</script>
+    <!-- HERO SECTION -->
+    <section id="home">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-badge">⚡ নতুন কালেকশন এসেছে</div>
+                <h2>Smart Gadgets, Smart Prices</h2>
+                <p class="hero-desc">বাংলাদেশের সবচেয়ে বিশ্বস্ত টেক স্টোর থেকে কিনুন লেটেস্ট স্মার্টফোন, ল্যাপটপ, হেডফোন এবং গেমিং গিয়ার — অফিশিয়াল ওয়ারেন্টি ও ক্যাশ অন ডেলিভারি সহ।</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Shop Now →</button>
+                    <button class="btn btn-secondary" onclick="document.getElementById('deals').scrollIntoView({behavior:'smooth'})">View Deals</button>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">50K+</div>
+                        <div class="stat-label">Happy Customers</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">1000+</div>
+                        <div class="stat-label">Products</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">4.9★</div>
+                        <div class="stat-label">Rating</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-featured">
+                <div class="featured-badge">SAVE ৳16,000</div>
+                <div class="featured-image">📱</div>
+                <div class="featured-info">
+                    <div class="featured-label">FEATURED PRODUCT</div>
+                    <div class="featured-name">iPhone 15 Pro Max</div>
+                    <div class="featured-spec">Titanium Design · A17 Pro Chip</div>
+                    <div class="featured-price">
+                        <del>৳205,000</del>৳189,000
+                    </div>
+                    <button class="featured-btn" onclick="addToCart('iPhone 15 Pro Max', '189000')">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <div class="features">
+        <div class="feature-card">
+            <div class="feature-icon">🚚</div>
+            <h3>Free Delivery</h3>
+            <p>ঢাকার ভেতরে ফ্রি ডেলিভারি এবং সারা দেশে দ্রুত শিপিং</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🛡️</div>
+            <h3>Official Warranty</h3>
+            <p>সব প্রোডাক্টে অফিশিয়াল ব্র্যান্ড ওয়ারেন্টি</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">💳</div>
+            <h3>Secure Payment</h3>
+            <p>bKash, Nagad, Card, COD সহ সব পেমেন্ট অপশন</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🎧</div>
+            <h3>24/7 Support</h3>
+            <p>যেকোনো সমস্যায় আমাদের সাপোর্ট টিম সর্বসময় প্রস্তুত</p>
+        </div>
+    </div>
+
+    <!-- CATEGORIES SECTION -->
+    <section id="categories">
+        <div class="section-header">
+            <div class="section-label">BROWSE</div>
+            <h2 class="section-title">Shop by Category</h2>
+            <a href="#products" class="view-all">View All →</a>
+        </div>
+        <div class="categories-grid">
+            <div class="category-card" onclick="filterByCategory('smartphone')">
+                <div class="category-icon">📱</div>
+                <div class="category-name">Smartphones</div>
+                <div class="category-count">128 products</div>
+            </div>
+            <div class="category-card" onclick="filterByCategory('laptop')">
+                <div class="category-icon">💻</div>
+                <div class="category-name">Laptops</div>
+                <div class="category-count">64 products</div>
+            </div>
+            <div class="category-card" onclick="filterByCategory('audio')">
+                <div class="category-icon">🎧</div>
+                <div class="category-name">Headphones</div>
+                <div class="category-count">95 products</div>
+            </div>
+            <div class="category-card" onclick="filterByCategory('wearable')">
+                <div class="category-icon">⌚</div>
+                <div class="category-name">Smartwatches</div>
+                <div class="category-count">52 products</div>
+            </div>
+            <div class="category-card" onclick="filterByCategory('camera')">
+                <div class="category-icon">📷</div>
+                <div class="category-name">Cameras</div>
+                <div class="category-count">31 products</div>
+            </div>
+            <div class="category-card" onclick="filterByCategory('gaming')">
+                <div class="category-icon">🎮</div>
+                <div class="category-name">Gaming</div>
+                <div class="category-count">47 products</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FLASH DEALS SECTION -->
+    <section id="deals">
+        <h2 class="deals-title">⚡ Flash Deals</h2>
+        <p class="deals-desc">সীমিত সময়ের জন্য বিশেষ অফার</p>
+        <div class="countdown">
+            <div class="countdown-item">
+                <div class="countdown-num" id="hours">01</div>
+                <div class="countdown-label">Hours</div>
+            </div>
+            <span style="font-size: 24px; font-weight: 700;">:</span>
+            <div class="countdown-item">
+                <div class="countdown-num" id="minutes">15</div>
+                <div class="countdown-label">Min</div>
+            </div>
+            <span style="font-size: 24px; font-weight: 700;">:</span>
+            <div class="countdown-item">
+                <div class="countdown-num" id="seconds">17</div>
+                <div class="countdown-label">Sec</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTS SECTION -->
+    <section id="products">
+        <div class="section-header">
+            <div class="section-label">FEATURED</div>
+            <h2 class="section-title">Best Selling Products</h2>
+        </div>
+
+        <div class="filter-tabs" id="filterTabs">
+            <button class="filter-tab active" onclick="filterByCategory('all')">All</button>
+            <button class="filter-tab" onclick="filterByCategory('smartphone')">Smartphones</button>
+            <button class="filter-tab" onclick="filterByCategory('laptop')">Laptops</button>
+            <button class="filter-tab" onclick="filterByCategory('audio')">Audio</button>
+            <button class="filter-tab" onclick="filterByCategory('wearable')">Wearables</button>
+        </div>
+
+        <div class="products-grid" id="productsGrid">
+            <!-- Products will be generated by JavaScript -->
+        </div>
+    </section>
+
+    <!-- NEWSLETTER SECTION -->
+    <section class="newsletter">
+        <div class="newsletter-icon">📧</div>
+        <h3>TechNest-এর সাথে আপডেট থাকুন</h3>
+        <p>নতুন প্রোডাক্ট, এক্সক্লুসিভ ডিল এবং অফার সরাসরি আপনার ইনবক্সে পান।</p>
+        <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+            <input type="email" placeholder="you@example.com" required>
+            <button type="submit">Subscribe ➤</button>
+        </form>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-col">
+                <div class="footer-col-brand">
+                    <div class="logo-icon">T</div>
+                    <h3>TechNest BD</h3>
+                </div>
+                <p class="footer-desc">বাংলাদেশের অন্যতম সেরা অনলাইন টেকনোলজি রিটেইলার। ২০২০ সাল থেকে আমরা আপনাদের পাশে আছি।</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <a href="#home">About Us</a>
+                <a href="#contact">Contact</a>
+                <a href="#">Blog</a>
+                <a href="#">Careers</a>
+            </div>
+
+            <div class="footer-col">
+                <h4>Customer Service</h4>
+                <a href="#">Track Order</a>
+                <a href="#">Return Policy</a>
+                <a href="#">Warranty</a>
+                <a href="#">FAQs</a>
+            </div>
+
+            <div class="footer-col">
+                <h4>Get in Touch</h4>
+                <p>📍 House 24, Road 11, Banani, Dhaka-1213</p>
+                <p>📞 +8801878877746</p>
+                <p>✉️ babult.agro2023@gmail.com</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div>© <span id="year">2024</span> TechNest BD. All rights reserved.</div>
+            <div>
+                <a href="#">Privacy</a> | <a href="#">Terms</a> | <a href="#">Cookies</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOATING CART -->
+    <div class="floating-cart" onclick="scrollToTop()">
+        🛒
+        <div class="floating-cart-badge" id="floatingCartBadge">0</div>
+    </div>
+
+    <!-- SCRIPT -->
+    <script>
+        // Products Data
+        const products = [
+            {
+                id: 1,
+                name: 'iPhone 15 Pro Max 256GB',
+                brand: 'Apple',
+                price: 189000,
+                oldPrice: 205000,
+                rating: 4.9,
+                reviews: 324,
+                badge: 'hot',
+                category: 'smartphone',
+                emoji: '📱'
+            },
+            {
+                id: 2,
+                name: 'MacBook Air M3 15-inch',
+                brand: 'Apple',
+                price: 175000,
+                oldPrice: 195000,
+                rating: 4.8,
+                reviews: 189,
+                badge: 'sale',
+                category: 'laptop',
+                emoji: '💻'
+            },
+            {
+                id: 3,
+                name: 'Sony WH-1000XM5 Headphones',
+                brand: 'Sony',
+                price: 32500,
+                oldPrice: 38000,
+                rating: 4.9,
+                reviews: 567,
+                badge: 'bestseller',
+                category: 'audio',
+                emoji: '🎧'
+            },
+            {
+                id: 4,
+                name: 'Apple Watch Ultra 2',
+                brand: 'Apple',
+                price: 89000,
+                oldPrice: null,
+                rating: 4.7,
+                reviews: 213,
+                badge: 'new',
+                category: 'wearable',
+                emoji: '⌚'
+            },
+            {
+                id: 5,
+                name: 'Samsung Galaxy S24 Ultra',
+                brand: 'Samsung',
+                price: 145000,
+                oldPrice: 159000,
+                rating: 4.8,
+                reviews: 445,
+                badge: 'hot',
+                category: 'smartphone',
+                emoji: '📱'
+            },
+            {
+                id: 6,
+                name: 'ASUS ROG Strix G16 Gaming',
+                brand: 'ASUS',
+                price: 165000,
+                oldPrice: 185000,
+                rating: 4.7,
+                reviews: 98,
+                badge: 'sale',
+                category: 'laptop',
+                emoji: '💻'
+            },
+            {
+                id: 7,
+                name: 'AirPods Pro 2 USB-C',
+                brand: 'Apple',
+                price: 28500,
+                oldPrice: 32000,
+                rating: 4.8,
+                reviews: 892,
+                badge: 'bestseller',
+                category: 'audio',
+                emoji: '🎧'
+            },
+            {
+                id: 8,
+                name: 'Samsung Galaxy Watch 6',
+                brand: 'Samsung',
+                price: 35000,
+                oldPrice: 42000,
+                rating: 4.6,
+                reviews: 156,
+                badge: 'sale',
+                category: 'wearable',
+                emoji: '⌚'
+            }
+        ];
+
+        let cartCount = 0;
+        let currentFilter = 'all';
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('year').textContent = new Date().getFullYear();
+            renderProducts('all');
+            startCountdown();
+        });
+
+        // Render Products
+        function renderProducts(category) {
+            const grid = document.getElementById('productsGrid');
+            grid.innerHTML = '';
+
+            let filtered = category === 'all' ? products : products.filter(p => p.category === category);
+
+            filtered.forEach(product => {
+                const stars = '★'.repeat(Math.floor(product.rating)) + (product.rating % 1 ? '½' : '');
+                const badgeClass = `badge-${product.badge}`;
+
+                grid.innerHTML += `
+                    <div class="product-card">
+                        <div class="product-image">
+                            ${product.emoji}
+                            <div class="product-badge ${badgeClass}">
+                                ${product.badge === 'hot' ? 'HOT' : product.badge === 'new' ? 'NEW' : product.badge === 'sale' ? `-${Math.round((1 - product.price/product.oldPrice)*100)}%` : 'BESTSELLER'}
+                            </div>
+                            <button class="wishlist-btn" onclick="toggleWishlist(event)">♡</button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-brand">${product.brand}</div>
+                            <div class="product-name">${product.name}</div>
+                            <div class="product-rating">
+                                <span class="product-rating-star">${stars}</span>
+                                <span class="product-rating-count">(${product.reviews})</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="product-price-current">৳${product.price.toLocaleString('bn-BD')}</span>
+                                ${product.oldPrice ? `<span class="product-price-old">৳${product.oldPrice.toLocaleString('bn-BD')}</span>` : ''}
+                            </div>
+                            <button class="product-cart-btn" onclick="addToCart('${product.name}', '${product.price}')">
+                                🛒 Add
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        // Filter Products
+        function filterByCategory(category) {
+            currentFilter = category;
+            renderProducts(category);
+            updateFilterTabs();
+        }
+
+        function updateFilterTabs() {
+            document.querySelectorAll('.filter-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            event?.target?.classList.add('active');
+        }
+
+        // Add to Cart
+        function addToCart(productName, price) {
+            cartCount++;
+            updateCartBadges();
+            showToast(`✅ ${productName} কার্টে যোগ হয়েছে!`);
+        }
+
+        // Update Cart Badges
+        function updateCartBadges() {
+            document.getElementById('headerCartBadge').textContent = cartCount;
+            document.getElementById('floatingCartBadge').textContent = cartCount;
+        }
+
+        // Toggle Wishlist
+        function toggleWishlist(event) {
+            event.stopPropagation();
+            const btn = event.target;
+            btn.textContent = btn.textContent === '♡' ? '❤️' : '♡';
+            if (btn.textContent === '❤️') {
+                showToast('❤️ Wishlisted!');
+            }
+        }
+
+        // Show Toast
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.textContent = message;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 3000);
+        }
+
+        // Newsletter
+        function handleNewsletter(event) {
+            event.preventDefault();
+            showToast('✅ সাবস্ক্রিপশন সফল! ধন্যবাদ।');
+            event.target.reset();
+        }
+
+        // Countdown Timer
+        function startCountdown() {
+            setInterval(() => {
+                let hours = parseInt(document.getElementById('hours').textContent);
+                let minutes = parseInt(document.getElementById('minutes').textContent);
+                let seconds = parseInt(document.getElementById('seconds').textContent);
+
+                if (seconds === 0) {
+                    if (minutes === 0) {
+                        if (hours === 0) {
+                            hours = 23;
+                            minutes = 59;
+                            seconds = 59;
+                        } else {
+                            hours--;
+                            minutes = 59;
+                            seconds = 59;
+                        }
+                    } else {
+                        minutes--;
+                        seconds = 59;
+                    }
+                } else {
+                    seconds--;
+                }
+
+                document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+                document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+                document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+            }, 1000);
+        }
+
+        // Search
+        document.getElementById('searchInput').addEventListener('input', function() {
+            const query = this.value.toLowerCase();
+            const grid = document.getElementById('productsGrid');
+            grid.innerHTML = '';
+
+            let filtered = products.filter(p => 
+                p.name.toLowerCase().includes(query) || 
+                p.brand.toLowerCase().includes(query)
+            );
+
+            if (filtered.length === 0) {
+                grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: var(--text-gray-mid); padding: 40px;">কোনো পণ্য পাওয়া যায়নি</p>';
+                return;
+            }
+
+            filtered.forEach(product => {
+                const stars = '★'.repeat(Math.floor(product.rating)) + (product.rating % 1 ? '½' : '');
+                const badgeClass = `badge-${product.badge}`;
+
+                grid.innerHTML += `
+                    <div class="product-card">
+                        <div class="product-image">
+                            ${product.emoji}
+                            <div class="product-badge ${badgeClass}">
+                                ${product.badge === 'hot' ? 'HOT' : product.badge === 'new' ? 'NEW' : 'SALE'}
+                            </div>
+                            <button class="wishlist-btn" onclick="toggleWishlist(event)">♡</button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-brand">${product.brand}</div>
+                            <div class="product-name">${product.name}</div>
+                            <div class="product-rating">
+                                <span class="product-rating-star">${stars}</span>
+                                <span class="product-rating-count">(${product.reviews})</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="product-price-current">৳${product.price.toLocaleString('bn-BD')}</span>
+                                ${product.oldPrice ? `<span class="product-price-old">৳${product.oldPrice.toLocaleString('bn-BD')}</span>` : ''}
+                            </div>
+                            <button class="product-cart-btn" onclick="addToCart('${product.name}', '${product.price}')">
+                                🛒 Add
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+        });
+
+        // Header Scroll Effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Menu
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('active');
+        }
+
+        function closeMobileMenu() {
+            document.getElementById('mobileMenu').classList.remove('active');
+        }
+
+        // Scroll to Top
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
 </body>
 </html>
