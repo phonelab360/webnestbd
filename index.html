@@ -1,547 +1,823 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WebNest BD</title>
 
-  <title>WebNest BD</title>
+<!-- Google Font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
 
-  <!-- Google Font -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Font Awesome -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
 
-  <!-- Font Awesome -->
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
-  <link rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+html{
+scroll-behavior:smooth;
+}
 
-  <style>
+body{
+font-family:'Poppins',sans-serif;
+background:#0f172a;
+color:white;
+overflow-x:hidden;
+}
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
+a{
+text-decoration:none;
+color:white;
+}
 
-    body{
-      font-family:'Poppins',sans-serif;
-      background:#0f172a;
-      color:white;
-    }
+/* HEADER */
 
-    a{
-      text-decoration:none;
-      color:white;
-    }
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
 
-    /* Header */
+padding:20px 40px;
 
-    header{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
+background:#020617;
 
-      padding:20px;
+position:sticky;
+top:0;
+z-index:1000;
 
-      background:#020617;
+flex-wrap:wrap;
+}
 
-      position:sticky;
-      top:0;
-      z-index:1000;
-    }
+.logo{
+font-size:32px;
+font-weight:700;
+color:cyan;
+}
 
-    .logo{
-      font-size:28px;
-      font-weight:700;
-      color:cyan;
-    }
+nav{
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+justify-content:center;
+}
 
-    nav a{
-      margin-left:15px;
-      font-size:14px;
-      transition:0.3s;
-    }
+nav a{
+font-size:15px;
+transition:0.3s;
+}
 
-    nav a:hover{
-      color:cyan;
-    }
+nav a:hover{
+color:cyan;
+}
 
-    /* Hero */
+/* HERO */
 
-    .hero{
-      min-height:90vh;
+.hero{
+min-height:100vh;
 
-      display:flex;
-      justify-content:center;
-      align-items:center;
+background:url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1400&auto=format&fit=crop');
 
-      text-align:center;
+background-size:cover;
+background-position:center;
 
-      padding:30px;
-    }
+display:flex;
+justify-content:center;
+align-items:center;
 
-    .hero-content h1{
-      font-size:50px;
-      line-height:1.2;
-    }
+text-align:center;
 
-    .hero-content p{
-      margin-top:20px;
-      color:#cbd5e1;
-      font-size:18px;
-    }
+position:relative;
 
-    .hero-btn{
-      margin-top:30px;
-      display:inline-block;
+padding:30px;
+}
 
-      padding:14px 35px;
+.hero-overlay{
+position:absolute;
+inset:0;
+background:rgba(0,0,0,0.70);
+}
 
-      background:cyan;
-      color:black;
+.hero-content{
+position:relative;
+z-index:2;
+max-width:900px;
+}
 
-      border-radius:10px;
+.hero-content h1{
+font-size:60px;
+line-height:1.2;
+font-weight:700;
+}
 
-      font-weight:600;
-    }
+.hero-content p{
+margin-top:20px;
+font-size:20px;
+color:#e2e8f0;
+}
 
-    /* Demo Section */
+.hero-buttons{
+margin-top:35px;
 
-    .demos{
-      padding:70px 20px;
-    }
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
+}
 
-    .section-title{
-      text-align:center;
-      font-size:35px;
-      margin-bottom:40px;
-    }
+.hero-btn{
+padding:14px 35px;
 
-    .demo-grid{
-      display:grid;
+background:cyan;
+color:black;
 
-      grid-template-columns:
-      repeat(auto-fit,minmax(280px,1fr));
+border-radius:10px;
 
-      gap:25px;
-    }
+font-weight:600;
 
-    .demo-card{
-      background:#1e293b;
+transition:0.3s;
+}
 
-      border-radius:20px;
+.hero-btn:hover{
+transform:translateY(-3px);
+}
 
-      overflow:hidden;
+.secondary-btn{
+background:#22c55e;
+color:white;
+}
 
-      transition:0.3s;
-    }
+/* DEMOS */
 
-    .demo-card:hover{
-      transform:translateY(-8px);
-    }
+.demos{
+padding:80px 20px;
+}
 
-    .demo-card img{
-      width:100%;
-      height:220px;
-      object-fit:cover;
-    }
+.section-title{
+text-align:center;
+font-size:42px;
+margin-bottom:50px;
+}
 
-    .demo-content{
-      padding:20px;
-    }
+.demo-grid{
+display:grid;
 
-    .demo-content h3{
-      margin-bottom:10px;
-    }
+grid-template-columns:
+repeat(auto-fit,minmax(280px,1fr));
 
-    .demo-content p{
-      color:#cbd5e1;
-      font-size:14px;
-    }
+gap:25px;
+}
 
-    .btn-group{
-      margin-top:20px;
+.demo-card{
+background:#1e293b;
 
-      display:flex;
-      gap:10px;
-    }
+border-radius:20px;
 
-    .btn{
-      flex:1;
+overflow:hidden;
 
-      text-align:center;
+transition:0.4s;
 
-      padding:10px;
+animation:floatCard 4s ease-in-out infinite;
+}
 
-      border-radius:8px;
+.demo-card:hover{
+transform:translateY(-8px);
+}
 
-      font-size:14px;
+.demo-card img{
+width:100%;
+height:220px;
+object-fit:cover;
 
-      font-weight:600;
-    }
+transition:0.5s;
+}
 
-    .preview-btn{
-      background:cyan;
-      color:black;
-    }
+.demo-card:hover img{
+transform:scale(1.08);
+}
 
-    .order-btn{
-      background:#22c55e;
-    }
+.demo-content{
+padding:20px;
+}
 
-    /* Why Us */
+.demo-content h3{
+margin-bottom:10px;
+font-size:24px;
+}
 
-    .why-us{
-      padding:70px 20px;
+.demo-content p{
+color:#cbd5e1;
+font-size:14px;
+line-height:1.6;
+}
 
-      background:#111827;
-    }
+.btn-group{
+margin-top:20px;
 
-    .why-grid{
-      display:grid;
+display:flex;
+gap:10px;
+}
 
-      grid-template-columns:
-      repeat(auto-fit,minmax(220px,1fr));
+.btn{
+flex:1;
 
-      gap:20px;
+text-align:center;
 
-      margin-top:40px;
-    }
+padding:12px;
 
-    .why-card{
-      background:#1e293b;
+border-radius:10px;
 
-      padding:25px;
+font-size:14px;
 
-      border-radius:15px;
+font-weight:600;
 
-      text-align:center;
-    }
+transition:0.3s;
+}
 
-    .why-card i{
-      font-size:35px;
-      color:cyan;
-      margin-bottom:15px;
-    }
+.preview-btn{
+background:cyan;
+color:black;
+}
 
-    /* Footer */
+.order-btn{
+background:#22c55e;
+}
 
-    footer{
-      padding:25px;
-      text-align:center;
-      background:#020617;
-    }
+.btn:hover{
+transform:translateY(-3px);
+}
 
-    /* WhatsApp Button */
+@keyframes floatCard{
 
-    .whatsapp{
-      position:fixed;
+0%{
+transform:translateY(0px);
+}
 
-      bottom:20px;
-      right:20px;
+50%{
+transform:translateY(-8px);
+}
 
-      width:60px;
-      height:60px;
+100%{
+transform:translateY(0px);
+}
 
-      background:#25D366;
+}
 
-      border-radius:50%;
+/* WHY US */
 
-      display:flex;
-      justify-content:center;
-      align-items:center;
+.why-us{
+padding:80px 20px;
+background:#111827;
+}
 
-      font-size:30px;
+.why-grid{
+display:grid;
 
-      z-index:999;
-    }
+grid-template-columns:
+repeat(auto-fit,minmax(220px,1fr));
 
-    /* Responsive */
+gap:20px;
 
-    @media(max-width:768px){
+margin-top:40px;
+}
 
-      header{
-        flex-direction:column;
-      }
+.why-card{
+background:#1e293b;
 
-      nav{
-        margin-top:15px;
-      }
+padding:30px;
 
-      .hero-content h1{
-        font-size:35px;
-      }
+border-radius:20px;
 
-      .hero-content p{
-        font-size:16px;
-      }
+text-align:center;
 
-    }
+transition:0.3s;
+}
 
-  </style>
+.why-card:hover{
+transform:translateY(-5px);
+}
+
+.why-card i{
+font-size:38px;
+color:cyan;
+margin-bottom:15px;
+}
+
+/* SOCIAL */
+
+.social-section{
+padding:70px 20px;
+text-align:center;
+}
+
+.social-section h2{
+font-size:36px;
+}
+
+.social-links{
+margin-top:30px;
+
+display:flex;
+justify-content:center;
+gap:20px;
+
+flex-wrap:wrap;
+}
+
+.social-links a{
+width:60px;
+height:60px;
+
+background:#1e293b;
+
+border-radius:50%;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+font-size:24px;
+
+transition:0.3s;
+}
+
+.social-links a:hover{
+background:cyan;
+color:black;
+
+transform:translateY(-5px);
+}
+
+/* FOOTER */
+
+footer{
+padding:25px;
+text-align:center;
+background:#020617;
+}
+
+/* WHATSAPP */
+
+.whatsapp{
+position:fixed;
+
+bottom:20px;
+right:20px;
+
+width:65px;
+height:65px;
+
+background:#25D366;
+
+border-radius:50%;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+font-size:32px;
+
+z-index:999;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+header{
+flex-direction:column;
+gap:15px;
+}
+
+.logo{
+font-size:28px;
+}
+
+.hero-content h1{
+font-size:38px;
+}
+
+.hero-content p{
+font-size:16px;
+}
+
+.section-title{
+font-size:32px;
+}
+
+}
+
+</style>
 
 </head>
 
 <body>
 
-  <!-- Header -->
+<!-- HEADER -->
 
-  <header>
+<header>
 
-    <div class="logo">
-      WebNest BD
-    </div>
+<div class="logo">
+WebNest BD
+</div>
 
-    <nav>
+<nav>
 
-     <nav>
+<a href="#">Home</a>
 
-  <a href="#">Home</a>
+<a href="#demos">Demos</a>
 
-  <a href="#">Demos</a>
+<a href="#">Pricing</a>
 
-  <a href="#">Pricing</a>
-
-  <a href="#">Contact</a>
+<a href="#">Contact</a>
 
 </nav>
 
-  </header>
+</header>
 
-  <!-- Hero -->
+<!-- HERO -->
 
-  <section class="hero">
+<section class="hero">
 
-    <div class="hero-content">
+<div class="hero-overlay"></div>
 
-      <h1>
-        Professional Business Websites <br>
-        For Modern Brands
-      </h1>
+<div class="hero-content">
 
-      <p>
-        Explore premium demo websites for businesses, ecommerce, restaurants, fashion and more.
-      </p>
+<h1>
+Premium Website Marketplace <br>
+For Modern Businesses
+</h1>
 
-      <a href="#demos" class="hero-btn">
-        View Live Demos
-      </a>
+<p>
+Ecommerce • News Portal • Restaurant • Landing Page • Business Website
+</p>
 
-    </div>
+<div class="hero-buttons">
 
-  </section>
+<a href="#demos" class="hero-btn">
+View Demos
+</a>
 
-  <!-- Demo Showcase -->
+<a href="https://wa.me/8801878877746"
+class="hero-btn secondary-btn"
+target="_blank">
 
-  <section class="demos" id="demos">
+Hire Now
 
-    <h2 class="section-title">
-      Featured Demo Websites
-    </h2>
-
-    <div class="demo-card">
-
-  <img src="https://i.postimg.cc/RhG2jn7n/In-Shot-20260528-172944875.jpg">
-
-  <div class="demo-content">
-
-    <h3>The Barta Echo</h3>
-
-    <p>
-      Modern news and media website built with Blogger platform.
-    </p>
-
-    <div class="btn-group">
-
-      <a href="https://thebartaecho.blogspot.com/"
-      class="btn preview-btn"
-      target="_blank">
-
-        Live Preview
-
-      </a>
-
-      <a href="https://wa.me/881878877746?text=I%20want%20a%20news%20website"
-      class="btn order-btn"
-      target="_blank">
-
-        Order Now
-
-      </a>
-
-    </div>
-
-  </div>
+</a>
 
 </div>
 
-      <!-- Demo 1 -->
+</div>
 
-      <div class="demo-card">
+</section>
 
-        <img src="https://i.postimg.cc/Xvh6QFVw/In-Shot-20260528-165807568.jpg">
+<!-- DEMOS -->
 
-        <div class="demo-content">
+<section class="demos" id="demos">
 
-          <h3>phoneLab360</h3>
+<h2 class="section-title">
+Featured Demo Websites
+</h2>
 
-          <p>
-            Professional mobile accessories and gadget ecommerce website.
-          </p>
+<div class="demo-grid">
 
-          <div class="btn-group">
+<!-- DEMO 1 -->
 
-            <a href="https://phonelab360.github.io/phonelab360/" class="btn preview-btn" target="_blank">
-              Live Preview
-            </a>
+<div class="demo-card">
 
-            <a href="https://wa.me/8801878877746?text=I%20want%20this%20website" class="btn order-btn">
-              Order Now
-            </a>
+<img src="https://i.postimg.cc/RhG2jn7n/In-Shot-20260528-172944875.jpg">
 
-          </div>
+<div class="demo-content">
 
-        </div>
+<h3>The Barta Echo</h3>
 
-      </div>
+<p>
+Modern news and media website built with Blogger platform.
+</p>
 
-      <!-- Demo 2 -->
+<div class="btn-group">
 
-      <div class="demo-card">
+<a href="https://thebartaecho.blogspot.com/"
+class="btn preview-btn"
+target="_blank">
 
-        <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1000&auto=format&fit=crop">
+Live Preview
 
-        <div class="demo-content">
+</a>
 
-          <h3>Fashion Store</h3>
+<a href="https://wa.me/8801878877746?text=I%20want%20a%20news%20website"
+class="btn order-btn"
+target="_blank">
 
-          <p>
-            Premium fashion ecommerce website template.
-          </p>
+Order Now
 
-          <div class="btn-group">
+</a>
 
-            <a href="#" class="btn preview-btn">
-              Live Preview
-            </a>
+</div>
 
-            <a href="#" class="btn order-btn">
-              Order Now
-            </a>
+</div>
 
-          </div>
+</div>
 
-        </div>
+<!-- DEMO 2 -->
 
-      </div>
+<div class="demo-card">
 
-      <!-- Demo 3 -->
+<img src="https://i.postimg.cc/Xvh6QFVw/In-Shot-20260528-165807568.jpg">
 
-      <div class="demo-card">
+<div class="demo-content">
 
-        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1000&auto=format&fit=crop">
+<h3>PhoneLab360</h3>
 
-        <div class="demo-content">
+<p>
+Professional mobile accessories and gadget ecommerce website.
+</p>
 
-          <h3>Restaurant Website</h3>
+<div class="btn-group">
 
-          <p>
-            Beautiful restaurant landing page with modern UI.
-          </p>
+<a href="https://phonelab360.github.io/phonelab360/"
+class="btn preview-btn"
+target="_blank">
 
-          <div class="btn-group">
+Live Preview
 
-            <a href="#" class="btn preview-btn">
-              Live Preview
-            </a>
+</a>
 
-            <a href="#" class="btn order-btn">
-              Order Now
-            </a>
+<a href="https://wa.me/8801878877746?text=I%20want%20this%20website"
+class="btn order-btn"
+target="_blank">
 
-          </div>
+Order Now
 
-        </div>
+</a>
 
-      </div>
+</div>
 
-    </div>
+</div>
 
-  </section>
+</div>
 
-  <!-- Why Choose Us -->
+<!-- DEMO 3 -->
 
-  <section class="why-us">
+<div class="demo-card">
 
-    <h2 class="section-title">
-      Why Choose WebNest BD
-    </h2>
+<img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1000&auto=format&fit=crop">
 
-    <div class="why-grid">
+<div class="demo-content">
 
-      <div class="why-card">
+<h3>Fashion Store</h3>
 
-        <i class="fa-solid fa-mobile-screen"></i>
+<p>
+Premium fashion ecommerce website template.
+</p>
 
-        <h3>Responsive Design</h3>
+<div class="btn-group">
 
-      </div>
+<a href="#"
+class="btn preview-btn">
 
-      <div class="why-card">
+Live Preview
 
-        <i class="fa-solid fa-bolt"></i>
+</a>
 
-        <h3>Fast Loading</h3>
+<a href="#"
+class="btn order-btn">
 
-      </div>
+Order Now
 
-      <div class="why-card">
+</a>
 
-        <i class="fa-solid fa-cart-shopping"></i>
+</div>
 
-        <h3>Ecommerce Ready</h3>
+</div>
 
-      </div>
+</div>
 
-      <div class="why-card">
+<!-- DEMO 4 -->
 
-        <i class="fa-solid fa-headset"></i>
+<div class="demo-card">
 
-        <h3>Customer Support</h3>
+<img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1000&auto=format&fit=crop">
 
-      </div>
+<div class="demo-content">
 
-    </div>
+<h3>Restaurant Website</h3>
 
-  </section>
+<p>
+Beautiful restaurant landing page with modern UI.
+</p>
 
-  <!-- Footer -->
+<div class="btn-group">
 
-  <footer>
+<a href="#"
+class="btn preview-btn">
 
-    <p>
-      © 2026 WebNest BD. All Rights Reserved.
-    </p>
+Live Preview
 
-  </footer>
+</a>
 
-  <!-- WhatsApp -->
+<a href="#"
+class="btn order-btn">
 
-  <a href="https://wa.me/8801878877746"
-  class="whatsapp">
+Order Now
 
-    <i class="fa-brands fa-whatsapp"></i>
+</a>
 
-  </a>
+</div>
+
+</div>
+
+</div>
+
+<!-- PLACEHOLDER DEMOS -->
+
+<div class="demo-card">
+
+<img src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?q=80&w=1000&auto=format&fit=crop">
+
+<div class="demo-content">
+
+<h3>Demo Website</h3>
+
+<p>
+Professional business website template.
+</p>
+
+<div class="btn-group">
+
+<a href="#"
+class="btn preview-btn">
+
+Live Preview
+
+</a>
+
+<a href="#"
+class="btn order-btn">
+
+Order Now
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="demo-card">
+
+<img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1000&auto=format&fit=crop">
+
+<div class="demo-content">
+
+<h3>Business Landing Page</h3>
+
+<p>
+Modern landing page design for startups and agencies.
+</p>
+
+<div class="btn-group">
+
+<a href="#"
+class="btn preview-btn">
+
+Live Preview
+
+</a>
+
+<a href="#"
+class="btn order-btn">
+
+Order Now
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- WHY US -->
+
+<section class="why-us">
+
+<h2 class="section-title">
+Why Choose WebNest BD
+</h2>
+
+<div class="why-grid">
+
+<div class="why-card">
+
+<i class="fa-solid fa-mobile-screen"></i>
+
+<h3>Responsive Design</h3>
+
+</div>
+
+<div class="why-card">
+
+<i class="fa-solid fa-bolt"></i>
+
+<h3>Fast Loading</h3>
+
+</div>
+
+<div class="why-card">
+
+<i class="fa-solid fa-cart-shopping"></i>
+
+<h3>Ecommerce Ready</h3>
+
+</div>
+
+<div class="why-card">
+
+<i class="fa-solid fa-headset"></i>
+
+<h3>Customer Support</h3>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- SOCIAL -->
+
+<section class="social-section">
+
+<h2>
+Connect With WebNest BD
+</h2>
+
+<div class="social-links">
+
+<a href="https://facebook.com/"
+target="_blank">
+
+<i class="fa-brands fa-facebook-f"></i>
+
+</a>
+
+<a href="https://linkedin.com/"
+target="_blank">
+
+<i class="fa-brands fa-linkedin-in"></i>
+
+</a>
+
+<a href="https://github.com/"
+target="_blank">
+
+<i class="fa-brands fa-github"></i>
+
+</a>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+<p>
+© 2026 WebNest BD. All Rights Reserved.
+</p>
+
+</footer>
+
+<!-- WHATSAPP -->
+
+<a href="https://wa.me/8801878877746"
+class="whatsapp"
+target="_blank">
+
+<i class="fa-brands fa-whatsapp"></i>
+
+</a>
 
 </body>
 
 </html>
-```
