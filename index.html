@@ -1,939 +1,1382 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="bn">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>WebNest BD</title>
-
-<!-- Google Font -->
+<meta name="description" content="WebNest BD - প্রিমিয়াম ওয়েবসাইট ডিজাইন, ই-কমার্স, ল্যান্ডিং পেজ, লোগো ডিজাইন ও সফটওয়্যার ডেভেলপমেন্ট সেবা। দ্রুত ডেলিভারি ও আজীবন সাপোর্ট।">
+<meta name="keywords" content="ওয়েবসাইট ডিজাইন, ই-কমার্স, ল্যান্ডিং পেজ, লোগো ডিজাইন, ওয়েব ডেভেলপমেন্ট, বাংলাদেশ, WebNest BD">
+<meta name="author" content="WebNest BD">
+<meta property="og:title" content="WebNest BD — Premium Web Solutions">
+<meta property="og:description" content="আপনার ব্যবসার জন্য স্বপ্নের ওয়েবসাইট। প্রফেশনাল ডিজাইন, দ্রুত ডেলিভারি, আজীবন সাপোর্ট।">
+<meta property="og:type" content="website">
+<meta name="robots" content="index, follow">
+<title>WebNest BD — Premium Web Solutions | ওয়েবসাইট ডিজাইন ও ডেভেলপমেন্ট</title>
+<link rel="canonical" href="https://webnestbd.com/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<!-- Font Awesome -->
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+:root {
+  --bg-deep: #060b14;
+  --bg-card: #0d1525;
+  --bg-card2: #111e33;
+  --accent: #00e5ff;
+  --accent2: #00ff88;
+  --accent3: #7c3aed;
+  --text: #e8f4ff;
+  --muted: #7a9bbf;
+  --border: rgba(0,229,255,0.12);
+  --glow: 0 0 40px rgba(0,229,255,0.15);
 }
 
-html{
-scroll-behavior:smooth;
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+
+body {
+  font-family:'Outfit',sans-serif;
+  background:var(--bg-deep);
+  color:var(--text);
+  overflow-x:hidden;
 }
 
-body{
-font-family:'Poppins',sans-serif;
-background:#0f172a;
-color:white;
-overflow-x:hidden;
+a { text-decoration:none; color:inherit; }
+
+/* ─── NOISE OVERLAY ─── */
+body::before {
+  content:'';
+  position:fixed; inset:0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events:none;
+  z-index:0;
+  opacity:0.4;
 }
 
-a{
-text-decoration:none;
-color:white;
+/* ─── HEADER ─── */
+header {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 5%;
+  background:rgba(6,11,20,0.92);
+  backdrop-filter:blur(20px);
+  position:sticky; top:0; z-index:1000;
+  border-bottom:1px solid var(--border);
 }
 
-/* HEADER */
+.logo {
+  font-size:26px;
+  font-weight:800;
+  letter-spacing:-0.5px;
+}
+.logo span { color:var(--accent); }
+.logo em { color:var(--accent2); font-style:normal; }
 
-header{
-display:flex;
-justify-content:space-between;
-align-items:center;
+nav { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+nav a {
+  font-size:14px;
+  font-weight:500;
+  padding:8px 16px;
+  border-radius:8px;
+  color:var(--muted);
+  transition:all 0.25s;
+}
+nav a:hover { color:var(--accent); background:rgba(0,229,255,0.07); }
+.nav-cta {
+  background:var(--accent) !important;
+  color:#000 !important;
+  font-weight:700 !important;
+  padding:9px 20px !important;
+  border-radius:10px !important;
+}
+.nav-cta:hover { transform:translateY(-2px); box-shadow:0 6px 20px rgba(0,229,255,0.35) !important; }
 
-padding:20px 40px;
-
-background:#020617;
-
-position:sticky;
-top:0;
-z-index:1000;
-
-flex-wrap:wrap;
+/* ─── HERO ─── */
+.hero {
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:60px 5% 80px;
+  position:relative;
+  overflow:hidden;
 }
 
-.logo{
-font-size:32px;
-font-weight:700;
-color:cyan;
+.hero-bg {
+  position:absolute; inset:0;
+  background:
+    linear-gradient(to right, rgba(6,11,20,0.85), rgba(6,11,20,0.6)), 
+    url('https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop') center/cover;
+  background-attachment:fixed;
 }
 
-nav{
-display:flex;
-gap:20px;
-flex-wrap:wrap;
-justify-content:center;
+.hero-bg::after {
+  content:'';
+  position:absolute; inset:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0,229,255,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 80% 80%, rgba(0,255,136,0.05) 0%, transparent 50%),
+    radial-gradient(ellipse 40% 40% at 20% 70%, rgba(124,58,237,0.06) 0%, transparent 50%);
 }
 
-nav a{
-font-size:15px;
-transition:0.3s;
+/* Grid lines */
+.hero-bg::before {
+  content:'';
+  position:absolute; inset:0;
+  background-image:
+    linear-gradient(rgba(0,229,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,229,255,0.04) 1px, transparent 1px);
+  background-size:60px 60px;
+  z-index:1;
 }
 
-nav a:hover{
-color:cyan;
+.hero-badge {
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:rgba(0,229,255,0.08);
+  border:1px solid rgba(0,229,255,0.2);
+  padding:7px 18px;
+  border-radius:50px;
+  font-size:13px;
+  font-weight:500;
+  color:var(--accent);
+  margin-bottom:28px;
+  position:relative; z-index:2;
+  animation:fadeDown 0.7s ease both;
 }
 
-/* HERO */
-
-.hero{
-min-height:100vh;
-
-background:url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1400&auto=format&fit=crop');
-
-background-size:cover;
-background-position:center;
-
-display:flex;
-justify-content:center;
-align-items:center;
-
-text-align:center;
-
-position:relative;
-
-padding:30px;
+.hero-badge .dot {
+  width:7px; height:7px;
+  background:var(--accent2);
+  border-radius:50%;
+  animation:pulse 1.5s infinite;
 }
 
-.hero-overlay{
-position:absolute;
-inset:0;
-background:rgba(0,0,0,0.70);
+@keyframes pulse {
+  0%,100% { opacity:1; transform:scale(1); }
+  50% { opacity:0.5; transform:scale(1.4); }
 }
 
-.hero-content{
-position:relative;
-z-index:2;
-max-width:900px;
+.hero h1 {
+  font-size:clamp(36px,7vw,80px);
+  font-weight:900;
+  line-height:1.08;
+  letter-spacing:-2px;
+  position:relative; z-index:2;
+  animation:fadeDown 0.8s 0.1s ease both;
 }
 
-.hero-content h1{
-font-size:60px;
-line-height:1.2;
-font-weight:700;
+.hero h1 .line1 { display:block; }
+.hero h1 .line2 {
+  display:block;
+  background:linear-gradient(135deg, var(--accent), var(--accent2));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
 }
 
-.hero-content p{
-margin-top:20px;
-font-size:20px;
-color:#e2e8f0;
+.hero-sub {
+  margin-top:22px;
+  font-size:clamp(15px,2vw,19px);
+  color:var(--muted);
+  max-width:640px;
+  line-height:1.7;
+  position:relative; z-index:2;
+  animation:fadeDown 0.8s 0.2s ease both;
+  font-family:'Hind Siliguri',sans-serif;
 }
 
-.hero-buttons{
-margin-top:35px;
-
-display:flex;
-justify-content:center;
-gap:15px;
-flex-wrap:wrap;
+.hero-tags {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px;
+  margin-top:24px;
+  position:relative; z-index:2;
+  animation:fadeDown 0.8s 0.3s ease both;
+}
+.hero-tag {
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.1);
+  padding:5px 14px;
+  border-radius:20px;
+  font-size:13px;
+  color:var(--muted);
 }
 
-.hero-btn{
-padding:14px 35px;
-
-background:cyan;
-color:black;
-
-border-radius:10px;
-
-font-weight:600;
-
-transition:0.3s;
+.hero-btns {
+  display:flex;
+  gap:14px;
+  margin-top:36px;
+  flex-wrap:wrap;
+  justify-content:center;
+  position:relative; z-index:2;
+  animation:fadeDown 0.8s 0.4s ease both;
 }
 
-.hero-btn:hover{
-transform:translateY(-3px);
+.btn-primary {
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  background:var(--accent);
+  color:#000;
+  font-weight:700;
+  font-size:15px;
+  padding:14px 30px;
+  border-radius:12px;
+  transition:all 0.3s;
+  box-shadow:0 4px 24px rgba(0,229,255,0.3);
+}
+.btn-primary:hover { transform:translateY(-3px); box-shadow:0 8px 32px rgba(0,229,255,0.45); }
+
+.btn-secondary {
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  background:transparent;
+  color:var(--text);
+  font-weight:600;
+  font-size:15px;
+  padding:14px 30px;
+  border-radius:12px;
+  border:1.5px solid rgba(255,255,255,0.15);
+  transition:all 0.3s;
+}
+.btn-secondary:hover { border-color:var(--accent); color:var(--accent); transform:translateY(-3px); }
+
+/* Stats row */
+.hero-stats {
+  display:flex;
+  gap:40px;
+  margin-top:60px;
+  flex-wrap:wrap;
+  justify-content:center;
+  position:relative; z-index:2;
+  animation:fadeDown 0.8s 0.5s ease both;
+}
+.stat-item { text-align:center; }
+.stat-num {
+  font-size:32px;
+  font-weight:800;
+  color:var(--accent);
+  line-height:1;
+}
+.stat-label { font-size:13px; color:var(--muted); margin-top:4px; }
+
+@keyframes fadeDown {
+  from { opacity:0; transform:translateY(-20px); }
+  to { opacity:1; transform:translateY(0); }
 }
 
-.secondary-btn{
-background:#22c55e;
-color:white;
+/* ─── SERVICES SECTION ─── */
+.section {
+  padding:90px 5%;
+  position:relative; z-index:1;
 }
 
-/* DEMOS */
-
-.demos{
-padding:80px 20px;
+.section-header {
+  text-align:center;
+  margin-bottom:60px;
+}
+.section-label {
+  display:inline-block;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin-bottom:14px;
+}
+.section-title {
+  font-size:clamp(28px,5vw,48px);
+  font-weight:800;
+  letter-spacing:-1px;
+  line-height:1.15;
+}
+.section-title span {
+  background:linear-gradient(135deg, var(--accent), var(--accent2));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.section-sub {
+  margin-top:14px;
+  color:var(--muted);
+  font-size:16px;
+  max-width:580px;
+  margin-inline:auto;
+  font-family:'Hind Siliguri',sans-serif;
 }
 
-.section-title{
-text-align:center;
-font-size:42px;
-margin-bottom:50px;
+/* Services grid */
+.services-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  gap:20px;
 }
 
-.demo-grid{
-display:grid;
-
-grid-template-columns:
-repeat(auto-fit,minmax(280px,1fr));
-
-gap:25px;
+.service-card {
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:32px;
+  position:relative;
+  overflow:hidden;
+  transition:all 0.35s;
+  cursor:default;
 }
 
-.demo-card{
-background:#1e293b;
-
-border-radius:20px;
-
-overflow:hidden;
-
-transition:0.4s;
-
-animation:floatCard 4s ease-in-out infinite;
+.service-card::before {
+  content:'';
+  position:absolute;
+  inset:-1px;
+  border-radius:20px;
+  background:linear-gradient(135deg, var(--accent), var(--accent2));
+  opacity:0;
+  transition:opacity 0.35s;
+  z-index:-1;
 }
 
-.demo-card:hover{
-transform:translateY(-8px);
+.service-card:hover {
+  transform:translateY(-6px);
+  border-color:transparent;
+  box-shadow:0 20px 60px rgba(0,0,0,0.4), var(--glow);
+}
+.service-card:hover::before { opacity:1; }
+.service-card:hover .service-inner { background:var(--bg-card); }
+
+.service-inner {
+  border-radius:16px;
+  height:100%;
+  transition:background 0.35s;
 }
 
-.demo-card img{
-width:100%;
-height:220px;
-object-fit:cover;
-
-transition:0.5s;
+.service-icon {
+  width:56px; height:56px;
+  background:rgba(0,229,255,0.1);
+  border:1px solid rgba(0,229,255,0.2);
+  border-radius:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:22px;
+  color:var(--accent);
+  margin-bottom:20px;
+  transition:all 0.3s;
+}
+.service-card:hover .service-icon {
+  background:var(--accent);
+  color:#000;
+  border-color:var(--accent);
 }
 
-.demo-card:hover img{
-transform:scale(1.08);
+.service-card h3 {
+  font-size:19px;
+  font-weight:700;
+  margin-bottom:10px;
+}
+.service-card p {
+  font-size:14px;
+  color:var(--muted);
+  line-height:1.7;
+  font-family:'Hind Siliguri',sans-serif;
 }
 
-.demo-content{
-padding:20px;
+.service-tags {
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  margin-top:18px;
+}
+.stag {
+  font-size:11px;
+  padding:4px 10px;
+  background:rgba(0,229,255,0.08);
+  border:1px solid rgba(0,229,255,0.15);
+  border-radius:20px;
+  color:var(--accent);
+  font-weight:500;
 }
 
-.demo-content h3{
-margin-bottom:10px;
-font-size:24px;
+/* ─── DEMOS SECTION ─── */
+.demos-section {
+  padding:90px 5%;
+  background:linear-gradient(to bottom, var(--bg-deep), #080f1e, var(--bg-deep));
+  position:relative; z-index:1;
 }
 
-.demo-content p{
-color:#cbd5e1;
-font-size:14px;
-line-height:1.6;
+.demo-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+  gap:24px;
 }
 
-.btn-group{
-margin-top:20px;
-
-display:flex;
-gap:10px;
+.demo-card {
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:20px;
+  overflow:hidden;
+  transition:all 0.4s cubic-bezier(.22,.68,0,1.2);
+  position:relative;
 }
 
-.btn{
-flex:1;
-
-text-align:center;
-
-padding:12px;
-
-border-radius:10px;
-
-font-size:14px;
-
-font-weight:600;
-
-transition:0.3s;
+.demo-card:hover {
+  transform:translateY(-10px);
+  border-color:rgba(0,229,255,0.25);
+  box-shadow:0 30px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(0,229,255,0.1);
 }
 
-.preview-btn{
-background:cyan;
-color:black;
+.demo-img-wrap {
+  position:relative;
+  overflow:hidden;
+  height:210px;
 }
 
-.order-btn{
-background:#22c55e;
+.demo-card img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform 0.6s cubic-bezier(.22,.68,0,1.2);
+  display:block;
+}
+.demo-card:hover img { transform:scale(1.08); }
+
+.demo-badge {
+  position:absolute;
+  top:14px; left:14px;
+  background:var(--accent);
+  color:#000;
+  font-size:11px;
+  font-weight:700;
+  padding:4px 10px;
+  border-radius:20px;
+  letter-spacing:0.5px;
+  text-transform:uppercase;
 }
 
-.btn:hover{
-transform:translateY(-3px);
+.demo-overlay {
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top, rgba(13,21,37,0.9) 0%, transparent 60%);
+  opacity:0;
+  transition:opacity 0.3s;
+  display:flex;
+  align-items:flex-end;
+  padding:20px;
+}
+.demo-card:hover .demo-overlay { opacity:1; }
+.demo-overlay-text { font-size:13px; color:rgba(255,255,255,0.8); }
+
+.demo-body { padding:22px; }
+.demo-body h3 { font-size:20px; font-weight:700; margin-bottom:8px; }
+.demo-body p {
+  font-size:13.5px;
+  color:var(--muted);
+  line-height:1.65;
+  font-family:'Hind Siliguri',sans-serif;
+  margin-bottom:18px;
 }
 
-@keyframes floatCard{
-
-0%{
-transform:translateY(0px);
+.demo-btns { display:flex; gap:10px; }
+.dbtn {
+  flex:1;
+  text-align:center;
+  padding:11px 16px;
+  border-radius:10px;
+  font-size:13px;
+  font-weight:600;
+  transition:all 0.25s;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+}
+.dbtn-preview {
+  background:rgba(0,229,255,0.1);
+  border:1px solid rgba(0,229,255,0.25);
+  color:var(--accent);
+}
+.dbtn-preview:hover {
+  background:var(--accent);
+  color:#000;
+  border-color:var(--accent);
+  transform:translateY(-2px);
+}
+.dbtn-order {
+  background:var(--accent2);
+  color:#000;
+  font-weight:700;
+}
+.dbtn-order:hover {
+  transform:translateY(-2px);
+  box-shadow:0 6px 20px rgba(0,255,136,0.35);
 }
 
-50%{
-transform:translateY(-8px);
+/* ─── WHY US ─── */
+.why-section {
+  padding:90px 5%;
+  position:relative; z-index:1;
 }
 
-100%{
-transform:translateY(0px);
+.why-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+  gap:18px;
 }
 
+.why-card {
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:30px 24px;
+  text-align:center;
+  transition:all 0.3s;
+}
+.why-card:hover {
+  transform:translateY(-5px);
+  border-color:rgba(0,229,255,0.2);
+  background:var(--bg-card2);
+}
+.why-icon {
+  width:60px; height:60px;
+  margin:0 auto 18px;
+  background:rgba(0,229,255,0.07);
+  border:1px solid rgba(0,229,255,0.15);
+  border-radius:16px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:24px;
+  color:var(--accent);
+}
+.why-card h3 { font-size:16px; font-weight:700; margin-bottom:8px; }
+.why-card p { font-size:13px; color:var(--muted); line-height:1.6; font-family:'Hind Siliguri',sans-serif; }
+
+/* ─── PROCESS ─── */
+.process-section {
+  padding:90px 5%;
+  background:#070d1b;
+  position:relative; z-index:1;
 }
 
-/* WHY US */
-
-.why-us{
-padding:80px 20px;
-background:#111827;
+.process-steps {
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  gap:20px;
+  margin-top:50px;
 }
 
-.why-grid{
-display:grid;
+.step {
+  position:relative;
+  padding:28px;
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:18px;
+  transition:all 0.3s;
+}
+.step:hover { transform:translateY(-4px); border-color:rgba(0,229,255,0.2); }
+.step-num {
+  font-size:48px;
+  font-weight:900;
+  color:rgba(0,229,255,0.08);
+  line-height:1;
+  margin-bottom:14px;
+  font-variant-numeric:tabular-nums;
+}
+.step h3 { font-size:17px; font-weight:700; margin-bottom:8px; }
+.step p { font-size:13px; color:var(--muted); line-height:1.6; font-family:'Hind Siliguri',sans-serif; }
 
-grid-template-columns:
-repeat(auto-fit,minmax(220px,1fr));
+/* ─── CTA BANNER ─── */
+.cta-section {
+  padding:80px 5%;
+  position:relative; z-index:1;
+}
+.cta-box {
+  background:linear-gradient(135deg, rgba(0,229,255,0.08), rgba(0,255,136,0.05), rgba(124,58,237,0.08));
+  border:1px solid rgba(0,229,255,0.2);
+  border-radius:28px;
+  padding:60px 40px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.cta-box::before {
+  content:'';
+  position:absolute;
+  top:-50%; left:-50%;
+  width:200%; height:200%;
+  background:radial-gradient(ellipse 60% 50% at 50% 50%, rgba(0,229,255,0.04), transparent);
+  animation:rotateBg 20s linear infinite;
+}
+@keyframes rotateBg { from { transform:rotate(0deg); } to { transform:rotate(360deg); } }
+.cta-box h2 { font-size:clamp(26px,4vw,44px); font-weight:800; margin-bottom:14px; letter-spacing:-1px; position:relative; }
+.cta-box p { color:var(--muted); font-size:16px; margin-bottom:30px; position:relative; font-family:'Hind Siliguri',sans-serif; }
+.cta-btns { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; position:relative; }
 
-gap:20px;
-
-margin-top:40px;
+/* ─── SOCIAL ─── */
+.social-section {
+  padding:70px 5%;
+  text-align:center;
+  position:relative; z-index:1;
+}
+.social-section h2 { font-size:28px; font-weight:700; margin-bottom:30px; }
+.social-links { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; }
+.social-links a {
+  width:54px; height:54px;
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
+  color:var(--muted);
+  transition:all 0.3s;
+}
+.social-links a:hover {
+  background:var(--accent);
+  color:#000;
+  border-color:var(--accent);
+  transform:translateY(-4px);
+  box-shadow:0 8px 24px rgba(0,229,255,0.3);
 }
 
-.why-card{
-background:#1e293b;
+/* ─── FOOTER ─── */
+footer {
+  padding:30px 5%;
+  background:#040810;
+  border-top:1px solid var(--border);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:14px;
+  position:relative; z-index:1;
+}
+.footer-logo { font-size:20px; font-weight:800; }
+.footer-logo span { color:var(--accent); }
+footer p { color:var(--muted); font-size:13px; }
+.footer-links { display:flex; gap:20px; }
+.footer-links a { font-size:13px; color:var(--muted); transition:color 0.2s; }
+.footer-links a:hover { color:var(--accent); }
 
-padding:30px;
-
-border-radius:20px;
-
-text-align:center;
-
-transition:0.3s;
+/* ─── WHATSAPP FLOAT ─── */
+.wa-float {
+  position:fixed;
+  bottom:24px; right:24px;
+  width:60px; height:60px;
+  background:#25D366;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:28px;
+  color:white;
+  z-index:9999;
+  box-shadow:0 6px 24px rgba(37,211,102,0.45);
+  transition:all 0.3s;
+  animation:waPulse 2.5s infinite;
+}
+.wa-float:hover { transform:scale(1.12); box-shadow:0 10px 32px rgba(37,211,102,0.6); }
+@keyframes waPulse {
+  0%,100% { box-shadow:0 6px 24px rgba(37,211,102,0.45); }
+  50% { box-shadow:0 6px 40px rgba(37,211,102,0.7); }
 }
 
-.why-card:hover{
-transform:translateY(-5px);
+/* ─── MOBILE ─── */
+@media(max-width:768px) {
+  header { flex-direction:column; gap:14px; padding:16px 5%; }
+  .hero h1 { letter-spacing:-1px; }
+  .hero-stats { gap:24px; }
+  .stat-num { font-size:26px; }
+  footer { flex-direction:column; text-align:center; }
+  .cta-box { padding:40px 24px; }
 }
-
-.why-card i{
-font-size:38px;
-color:cyan;
-margin-bottom:15px;
-}
-
-/* SOCIAL */
-
-.social-section{
-padding:70px 20px;
-text-align:center;
-}
-
-.social-section h2{
-font-size:36px;
-}
-
-.social-links{
-margin-top:30px;
-
-display:flex;
-justify-content:center;
-gap:20px;
-
-flex-wrap:wrap;
-}
-
-.social-links a{
-width:60px;
-height:60px;
-
-background:#1e293b;
-
-border-radius:50%;
-
-display:flex;
-justify-content:center;
-align-items:center;
-
-font-size:24px;
-
-transition:0.3s;
-}
-
-.social-links a:hover{
-background:cyan;
-color:black;
-
-transform:translateY(-5px);
-}
-
-/* FOOTER */
-
-footer{
-padding:25px;
-text-align:center;
-background:#020617;
-}
-
-/* WHATSAPP */
-
-.whatsapp{
-position:fixed;
-
-bottom:20px;
-right:20px;
-
-width:65px;
-height:65px;
-
-background:#25D366;
-
-border-radius:50%;
-
-display:flex;
-justify-content:center;
-align-items:center;
-
-font-size:32px;
-
-z-index:999;
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-header{
-flex-direction:column;
-gap:15px;
-}
-
-.logo{
-font-size:28px;
-}
-
-.hero-content h1{
-font-size:38px;
-}
-
-.hero-content p{
-font-size:16px;
-}
-
-.section-title{
-font-size:32px;
-}
-
-}
-
 </style>
-
 </head>
 
 <body>
 
 <!-- HEADER -->
-
 <header>
-
-<div class="logo">
-WebNest BD
-</div>
-
-<nav>
-
-<a href="#">Home</a>
-
-<a href="#demos">Demos</a>
-
-<a href="#">Pricing</a>
-
-<a href="#">Contact</a>
-
-</nav>
-
+  <div class="logo">Web<span>Nest</span> <em>BD</em></div>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#demos">Demos</a>
+    <a href="#services">Services</a>
+    <a href="#why">Why Us</a>
+    <a href="https://wa.me/8801878877746" class="nav-cta" target="_blank">
+      <i class="fa-brands fa-whatsapp"></i> Hire Now
+    </a>
+  </nav>
 </header>
 
 <!-- HERO -->
-
 <section class="hero">
+  <div class="hero-bg"></div>
 
-<div class="hero-overlay"></div>
+  <div class="hero-badge">
+    <span class="dot"></span>
+    Bangladesh-based Premium Web Agency
+  </div>
 
-<div class="hero-content">
+  <h1>
+    <span class="line1">আপনার ব্যবসার জন্য</span>
+    <span class="line2">স্বপ্নের ওয়েবসাইট</span>
+  </h1>
 
-<h1>
-Premium Website Marketplace <br>
-For Modern Businesses
-</h1>
+  <p class="hero-sub">
+    Professional Website Design, Ecommerce, Landing Page, Logo Design, Software Development — সব কিছু এক জায়গায়। দ্রুত ডেলিভারি, আজীবন সাপোর্ট।
+  </p>
 
-<p>
-Ecommerce • News Portal • Restaurant • Landing Page • Business Website
-</p>
+  <div class="hero-tags">
+    <span class="hero-tag">Ecommerce</span>
+    <span class="hero-tag">News Portal</span>
+    <span class="hero-tag">Restaurant</span>
+    <span class="hero-tag">Landing Page</span>
+    <span class="hero-tag">Business Website</span>
+    <span class="hero-tag">Logo Design</span>
+    <span class="hero-tag">Software</span>
+  </div>
 
-<div class="hero-buttons">
+  <div class="hero-btns">
+    <a href="#demos" class="btn-primary">
+      <i class="fa-solid fa-eye"></i> ডেমো দেখুন
+    </a>
+    <a href="https://wa.me/8801878877746" class="btn-secondary" target="_blank">
+      <i class="fa-brands fa-whatsapp"></i> WhatsApp করুন
+    </a>
+  </div>
 
-<a href="#demos" class="hero-btn">
-View Demos
-</a>
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-num">50+</div>
+      <div class="stat-label">Projects Delivered</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Client Satisfaction</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">24/7</div>
+      <div class="stat-label">Support Available</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">Fast</div>
+      <div class="stat-label">Delivery</div>
+    </div>
+  </div>
+</section>
 
-<a href="https://wa.me/8801878877746"
-class="hero-btn secondary-btn"
-target="_blank">
+<!-- SERVICES -->
+<section class="section" id="services">
+  <div class="section-header">
+    <div class="section-label">Our Services</div>
+    <h2 class="section-title">WebNest BD থেকে <span>কি কি পাবেন?</span></h2>
+    <p class="section-sub">একটি সফল ওয়েবসাইটের জন্য যা যা দরকার — সব কিছুই আমরা দিই।</p>
+  </div>
 
-Hire Now
+  <div class="services-grid">
 
-</a>
+    <div class="service-card">
+      <div class="service-inner">
+        <div class="service-icon"><i class="fa-solid fa-laptop-code"></i></div>
+        <h3>Professional Website Design</h3>
+        <p>আধুনিক, রেসপন্সিভ ও দ্রুত লোডিং ওয়েবসাইট। Business, Portfolio, Corporate — যেকোনো ধরনের।</p>
+        <div class="service-tags">
+          <span class="stag">HTML/CSS</span><span class="stag">Responsive</span><span class="stag">Fast Loading</span>
+        </div>
+      </div>
+    </div>
 
-</div>
+    <div class="service-card">
+      <div class="service-inner">
+        <div class="service-icon"><i class="fa-solid fa-cart-shopping"></i></div>
+        <h3>Ecommerce Website</h3>
+        <p>পণ্য বিক্রির জন্য সম্পূর্ণ ই-কমার্স সাইট। Product listing, cart, order system সহ।</p>
+        <div class="service-tags">
+          <span class="stag">Online Shop</span><span class="stag">Product Pages</span><span class="stag">Cart System</span>
+        </div>
+      </div>
+    </div>
 
-</div>
+    <div class="service-card">
+      <div class="service-inner">
+        <div class="service-icon"><i class="fa-solid fa-rocket"></i></div>
+        <h3>Landing Page</h3>
+        <p>কনভার্সন-ফোকাসড প্রফেশনাল ল্যান্ডিং পেজ। বিজ্ঞাপন ক্যাম্পেইন ও লিড জেনারেশনের জন্য পারফেক্ট।</p>
+        <div class="service-tags">
+          <span class="stag">High Conversion</span><span class="stag">Lead Gen</span><span class="stag">CTA Focused</span>
+        </div>
+      </div>
+    </div>
 
+    <div class="service-card">
+      <div class="service-inner">
+        <div class="service-icon"><i class="fa-solid fa-pen-nib"></i></div>
+        <h3>Logo & Brand Design</h3>
+        <p>আপনার ব্যবসার পরিচয় তৈরি করুন। Professional logo, brand identity ও visual assets।</p>
+        <div class="service-tags">
+          <span class="stag">Logo Design</span><span class="stag">Branding</span><span class="stag">Vector Format</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-inner">
+        <div class="service-icon"><i class="fa-solid fa-newspaper"></i></div>
+        <h3>News & Blog Portal</h3>
+        <p>Blogger বা কাস্টম প্ল্যাটফর্মে প্রফেশনাল নিউজ পোর্টাল বা ব্লগ ওয়েবসাইট।</p>
+        <div class="service-tags">
+          <span class="stag">News Portal</span><span class="stag">Blog</span><span class="stag">Blogger</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-inner">
+        <div class="service-icon"><i class="fa-solid fa-code"></i></div>
+        <h3>Custom Software Development</h3>
+        <p>আপনার ব্যবসার চাহিদা অনুযায়ী কাস্টম সফটওয়্যার, Web App ও ডিজিটাল টুল তৈরি।</p>
+        <div class="service-tags">
+          <span class="stag">Web App</span><span class="stag">Custom Tools</span><span class="stag">Automation</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-inner">
+        <div class="service-icon"><i class="fa-solid fa-utensils"></i></div>
+        <h3>Restaurant Website</h3>
+        <p>রেস্টুরেন্ট, ফুড ডেলিভারি ও ক্যাফের জন্য সুন্দর মেনু ও অর্ডার সিস্টেম সহ ওয়েবসাইট।</p>
+        <div class="service-tags">
+          <span class="stag">Menu System</span><span class="stag">Food Delivery</span><span class="stag">Booking</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-inner">
+        <div class="service-icon"><i class="fa-solid fa-headset"></i></div>
+        <h3>Lifetime Support & Maintenance</h3>
+        <p>ওয়েবসাইট ডেলিভারির পরেও আমরা আছি। Update, bug fix, content change — সবকিছুতে সাহায্য।</p>
+        <div class="service-tags">
+          <span class="stag">24/7 Support</span><span class="stag">Updates</span><span class="stag">Maintenance</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </section>
 
 <!-- DEMOS -->
-
-<section class="demos" id="demos">
-
-<h2 class="section-title">
-Featured Demo Websites
-</h2>
-
-<div class="demo-grid">
-
-  <!-- Demo 1 -->
-
-  <div class="demo-card">
-
-  <img src="https://i.postimg.cc/P5Xyw68d/Chat-GPT-Image-May-29-2026-11-37-03-AM.png">
-
-  <div class="demo-content">
-
-    <h3>TasteNest BD</h3>
-
-    <p>
-      TasteNest BD brings delicious food, premium restaurant experience and fast delivery together in one modern platform.
-    </p>
-
-    <div class="btn-group">
-
-      <a href="https://phonelab360.github.io/TasteNest-BD/"
-      class="btn preview-btn"
-      target="_blank">
-
-        Live Preview
-
-      </a>
-
-      <a href="https://wa.me/8801878877746?text=I%20want%20TasteNest%20BD%20website"
-      class="btn order-btn"
-      target="_blank">
-
-        Order Now
-
-      </a>
-
-    </div>
-
+<section class="demos-section" id="demos">
+  <div class="section-header">
+    <div class="section-label">Live Demos</div>
+    <h2 class="section-title">আমাদের <span>তৈরি ওয়েবসাইট</span></h2>
+    <p class="section-sub">প্রতিটি ডেমো দেখুন, পছন্দ হলে সাথে সাথে অর্ডার করুন।</p>
   </div>
 
-</div>
+  <div class="demo-grid">
 
-  <!-- Demo 2 -->
-
-  <div class="demo-card">
-
-  <img src="https://i.postimg.cc/Vsg01pxH/IMG-20260529-WA0013.jpg">
-
-  <div class="demo-content">
-
-    <h3>PureLychee</h3>
-
-    <p>
-     "PureLychee" বাগান থেকে সরাসরি,
-১০০% ন্যাচারাল ও ফ্রেশ.
-    </p>
-
-    <div class="btn-group">
-
-      <a href="https://phonelab360.github.io/purelychee/"
-      class="btn preview-btn"
-      target="_blank">
-
-        Live Preview
-
-      </a>
-
-      <a href="https://wa.me/8801878877746?text=I%20want%20TasteNest%20BD%20website"
-      class="btn order-btn"
-      target="_blank">
-
-        Order Now
-
-      </a>
-
-    </div>
-
-  </div>
-
-</div>
-
-  <!-- নতুন Demo এখান থেকে -->
-
-  <div class="demo-card">
-
-    <img src="https://i.postimg.cc/W4JmwK69/Max-a-Create-a-premium-rea-(3).png">
-
-    <div class="demo-content">
-
-      <h3>TechNest BD</h3>
-
-      <p>
-        Smart Gadget & Tech Store.
-      </p>
-
-      <div class="btn-group">
-
-        <a href="https://phonelab360.github.io/technestbd.com/"
-        class="btn preview-btn"
-        target="_blank">
-
-          Live Preview
-
-        </a>
-
-        <a href="https://wa.me/8801878877746"
-        class="btn order-btn"
-        target="_blank">
-
-          Order Now
-
-        </a>
-
+    <!-- TasteNest BD -->
+    <div class="demo-card">
+      <div class="demo-img-wrap">
+        <span class="demo-badge">Restaurant</span>
+        <img src="https://i.postimg.cc/P5Xyw68d/Chat-GPT-Image-May-29-2026-11-37-03-AM.png" alt="TasteNest BD - রেস্টুরেন্ট ওয়েবসাইট" loading="lazy">
+        <div class="demo-overlay"><span class="demo-overlay-text">👆 Click to preview live</span></div>
       </div>
+      <div class="demo-body">
+        <h3>TasteNest BD</h3>
+        <p>Delicious food platform with premium restaurant experience & fast delivery. Modern UI with full mobile support.</p>
+        <div class="demo-btns">
+          <a href="https://phonelab360.github.io/TasteNest-BD/" class="dbtn dbtn-preview" target="_blank">
+            <i class="fa-solid fa-eye"></i> Live Preview
+          </a>
+          <a href="https://wa.me/8801878877746?text=I%20want%20TasteNest%20BD%20website" class="dbtn dbtn-order" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> Order Now
+          </a>
+        </div>
+      </div>
+    </div>
 
+    <!-- PureLychee -->
+    <div class="demo-card">
+      <div class="demo-img-wrap">
+        <span class="demo-badge">Food / Natural</span>
+        <img src="https://i.postimg.cc/Vsg01pxH/IMG-20260529-WA0013.jpg" alt="PureLychee - প্রাকৃতিক পণ্য ল্যান্ডিং পেজ" loading="lazy">
+        <div class="demo-overlay"><span class="demo-overlay-text">👆 Click to preview live</span></div>
+      </div>
+      <div class="demo-body">
+        <h3>PureLychee</h3>
+        <p>বাগান থেকে সরাসরি ১০০% ন্যাচারাল ও ফ্রেশ লিচু। প্রাকৃতিক পণ্য বিক্রির জন্য আদর্শ ল্যান্ডিং পেজ।</p>
+        <div class="demo-btns">
+          <a href="https://phonelab360.github.io/purelychee/" class="dbtn dbtn-preview" target="_blank">
+            <i class="fa-solid fa-eye"></i> Live Preview
+          </a>
+          <a href="https://wa.me/8801878877746?text=I%20want%20PureLychee%20website" class="dbtn dbtn-order" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> Order Now
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- TechNest BD -->
+    <div class="demo-card">
+      <div class="demo-img-wrap">
+        <span class="demo-badge">Tech / Gadget</span>
+        <img src="https://i.postimg.cc/W4JmwK69/Max-a-Create-a-premium-rea-(3).png" alt="TechNest BD - গ্যাজেট ই-কমার্স" loading="lazy">
+        <div class="demo-overlay"><span class="demo-overlay-text">👆 Click to preview live</span></div>
+      </div>
+      <div class="demo-body">
+        <h3>TechNest BD</h3>
+        <p>Smart Gadget & Tech Store. Sleek ecommerce design for electronics and mobile accessories shop.</p>
+        <div class="demo-btns">
+          <a href="https://phonelab360.github.io/technestbd.com/" class="dbtn dbtn-preview" target="_blank">
+            <i class="fa-solid fa-eye"></i> Live Preview
+          </a>
+          <a href="https://wa.me/8801878877746?text=I%20want%20TechNest%20BD%20website" class="dbtn dbtn-order" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> Order Now
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- The Barta Echo -->
+    <div class="demo-card">
+      <div class="demo-img-wrap">
+        <span class="demo-badge">News Portal</span>
+        <img src="https://i.postimg.cc/tCZkxMJG/Max-a-Create-a-premium-rea-(1).png" alt="The Barta Echo - নিউজ পোর্টাল" loading="lazy">
+        <div class="demo-overlay"><span class="demo-overlay-text">👆 Click to preview live</span></div>
+      </div>
+      <div class="demo-body">
+        <h3>The Barta Echo</h3>
+        <p>Modern news and media website built with Blogger platform. Professional layout with category, trending & breaking news.</p>
+        <div class="demo-btns">
+          <a href="https://thebartaecho.blogspot.com/" class="dbtn dbtn-preview" target="_blank">
+            <i class="fa-solid fa-eye"></i> Live Preview
+          </a>
+          <a href="https://wa.me/8801878877746?text=I%20want%20a%20news%20website" class="dbtn dbtn-order" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> Order Now
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- PhoneLab360 -->
+    <div class="demo-card">
+      <div class="demo-img-wrap">
+        <span class="demo-badge">Ecommerce</span>
+        <img src="https://i.postimg.cc/zX0WtwQH/Max-a-Create-a-premium-rea.png" alt="PhoneLab360 - মোবাইল এক্সেসরিজ স্টোর" loading="lazy">
+        <div class="demo-overlay"><span class="demo-overlay-text">👆 Click to preview live</span></div>
+      </div>
+      <div class="demo-body">
+        <h3>PhoneLab360</h3>
+        <p>Professional mobile accessories & gadget ecommerce website with product search, filtering & WhatsApp ordering.</p>
+        <div class="demo-btns">
+          <a href="https://phonelab360.github.io/phonelab360/" class="dbtn dbtn-preview" target="_blank">
+            <i class="fa-solid fa-eye"></i> Live Preview
+          </a>
+          <a href="https://wa.me/8801878877746?text=I%20want%20this%20website" class="dbtn dbtn-order" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> Order Now
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- RoyalLychee BD -->
+    <div class="demo-card">
+      <div class="demo-img-wrap">
+        <span class="demo-badge">Food / Premium</span>
+        <img src="https://i.postimg.cc/wTxc1Vvk/IMG-20260530-WA0001.jpg" alt="RoyalLychee BD - প্রিমিয়াম খাদ্য পণ্য" loading="lazy">
+        <div class="demo-overlay"><span class="demo-overlay-text">👆 Click to preview live</span></div>
+      </div>
+      <div class="demo-body">
+        <h3>RoyalLychee BD</h3>
+        <p>Premium natural food website template. Elegant design for organic & farm-fresh product sellers.</p>
+        <div class="demo-btns">
+          <a href="https://webnestbd.github.io/royallycheebd/" class="dbtn dbtn-preview" target="_blank">
+            <i class="fa-solid fa-eye"></i> Live Preview
+          </a>
+          <a href="https://wa.me/8801878877746?text=I%20want%20this%20website" class="dbtn dbtn-order" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> Order Now
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Beauty & Cosmetics -->
+    <div class="demo-card">
+      <div class="demo-img-wrap">
+        <span class="demo-badge">Beauty Shop</span>
+        <img src="https://images.unsplash.com/photo-1596462502278-af242a95ab51?q=80&w=1000&auto=format&fit=crop" alt="Beauty & Cosmetics - সৌন্দর্য পণ্য স্টোর" loading="lazy">
+        <div class="demo-overlay"><span class="demo-overlay-text">👆 Click to preview live</span></div>
+      </div>
+      <div class="demo-body">
+        <h3>Beauty & Cosmetics Store</h3>
+        <p>আধুনিক সৌন্দর্য পণ্যের অনলাইন স্টোর। পণ্য ক্যাটালগ, রিভিউ ও সহজ অর্ডারিং সিস্টেম।</p>
+        <div class="demo-btns">
+          <a href="https://wa.me/8801878877746?text=I%20want%20a%20beauty%20store%20website" class="dbtn dbtn-preview" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> Request Demo
+          </a>
+          <a href="https://wa.me/8801878877746?text=I%20want%20a%20beauty%20store%20website" class="dbtn dbtn-order" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> Order Now
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fashion Store -->
+    <div class="demo-card">
+      <div class="demo-img-wrap">
+        <span class="demo-badge">Fashion</span>
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=1000&auto=format&fit=crop" alt="Fashion Store - ফ্যাশন পোশাকের দোকান" loading="lazy">
+        <div class="demo-overlay"><span class="demo-overlay-text">👆 Click to preview live</span></div>
+      </div>
+      <div class="demo-body">
+        <h3>Fashion Store</h3>
+        <p>আধুনিক ফ্যাশন ই-কমার্স প্ল্যাটফর্ম। ঐতিহ্যবাহী পোশাক থেকে আধুনিক ডিজাইনার পোশাক বিক্রয়ের জন্য।</p>
+        <div class="demo-btns">
+          <a href="https://wa.me/8801878877746?text=I%20want%20a%20fashion%20store%20website" class="dbtn dbtn-preview" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> Request Demo
+          </a>
+          <a href="https://wa.me/8801878877746?text=I%20want%20a%20fashion%20store%20website" class="dbtn dbtn-order" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> Order Now
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Real Estate -->
+    <div class="demo-card">
+      <div class="demo-img-wrap">
+        <span class="demo-badge">Real Estate</span>
+        <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=1000&auto=format&fit=crop" alt="Real Estate - সম্পত্তি বিক্রয় ওয়েবসাইট" loading="lazy">
+        <div class="demo-overlay"><span class="demo-overlay-text">👆 Click to preview live</span></div>
+      </div>
+      <div class="demo-body">
+        <h3>Real Estate Portal</h3>
+        <p>রিয়েল এস্টেট সম্পত্তি প্রদর্শন ওয়েবসাইট। ভিডিও, ছবি ও বিস্তারিত বিবরণ সহ সম্পত্তি লিস্টিং।</p>
+        <div class="demo-btns">
+          <a href="https://wa.me/8801878877746?text=I%20want%20a%20real%20estate%20website" class="dbtn dbtn-preview" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> Request Demo
+          </a>
+          <a href="https://wa.me/8801878877746?text=I%20want%20a%20real%20estate%20website" class="dbtn dbtn-order" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> Order Now
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Education Platform -->
+    <div class="demo-card">
+      <div class="demo-img-wrap">
+        <span class="demo-badge">Education</span>
+        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1000&auto=format&fit=crop" alt="Online Learning Platform - শিক্ষা প্ল্যাটফর্ম" loading="lazy">
+        <div class="demo-overlay"><span class="demo-overlay-text">👆 Click to preview live</span></div>
+      </div>
+      <div class="demo-body">
+        <h3>Online Learning Platform</h3>
+        <p>অনলাইন কোর্স ও শিক্ষা প্ল্যাটফর্ম। কোর্স লিস্টিং, শিক্ষার্থী ড্যাশবোর্ড ও পেমেন্ট সিস্টেম।</p>
+        <div class="demo-btns">
+          <a href="https://wa.me/8801878877746?text=I%20want%20an%20education%20platform" class="dbtn dbtn-preview" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> Request Demo
+          </a>
+          <a href="https://wa.me/8801878877746?text=I%20want%20an%20education%20platform" class="dbtn dbtn-order" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> Order Now
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- SaaS Product -->
+    <div class="demo-card">
+      <div class="demo-img-wrap">
+        <span class="demo-badge">SaaS / Software</span>
+        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=1000&auto=format&fit=crop" alt="SaaS Product - সফটওয়্যার সেবা" loading="lazy">
+        <div class="demo-overlay"><span class="demo-overlay-text">👆 Click to preview live</span></div>
+      </div>
+      <div class="demo-body">
+        <h3>SaaS Product Landing</h3>
+        <p>সফটওয়্যার পণ্য প্রদর্শনের জন্য আধুনিক ল্যান্ডিং পেজ। ফিচার ডেমো, প্রাইসিং ও সাইনআপ সিস্টেম।</p>
+        <div class="demo-btns">
+          <a href="https://wa.me/8801878877746?text=I%20want%20a%20SaaS%20website" class="dbtn dbtn-preview" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> Request Demo
+          </a>
+          <a href="https://wa.me/8801878877746?text=I%20want%20a%20SaaS%20website" class="dbtn dbtn-order" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> Order Now
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Travel Agency -->
+    <div class="demo-card">
+      <div class="demo-img-wrap">
+        <span class="demo-badge">Travel</span>
+        <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=1000&auto=format&fit=crop" alt="Travel Agency - ভ্রমণ সংস্থা" loading="lazy">
+        <div class="demo-overlay"><span class="demo-overlay-text">👆 Click to preview live</span></div>
+      </div>
+      <div class="demo-body">
+        <h3>Travel & Tour Package</h3>
+        <p>ট্যুর প্যাকেজ ও ভ্রমণ সেবা প্রদর্শন। গন্তব্য বিবরণ, মূল্য নির্ধারণ ও বুকিং সিস্টেম সহ।</p>
+        <div class="demo-btns">
+          <a href="https://wa.me/8801878877746?text=I%20want%20a%20travel%20website" class="dbtn dbtn-preview" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> Request Demo
+          </a>
+          <a href="https://wa.me/8801878877746?text=I%20want%20a%20travel%20website" class="dbtn dbtn-order" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> Order Now
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Healthcare -->
+    <div class="demo-card">
+      <div class="demo-img-wrap">
+        <span class="demo-badge">Healthcare</span>
+        <img src="https://images.unsplash.com/photo-1576091160550-112173f7f869?q=80&w=1000&auto=format&fit=crop" alt="Healthcare Clinic - স্বাস্থ্যসেবা ক্লিনিক" loading="lazy">
+        <div class="demo-overlay"><span class="demo-overlay-text">👆 Click to preview live</span></div>
+      </div>
+      <div class="demo-body">
+        <h3>Healthcare Clinic Website</h3>
+        <p>ডাক্তার, ক্লিনিক ও হাসপাতালের জন্য পেশাদার ওয়েবসাইট। অ্যাপয়েন্টমেন্ট বুকিং ও রোগীর তথ্য সিস্টেম।</p>
+        <div class="demo-btns">
+          <a href="https://wa.me/8801878877746?text=I%20want%20a%20healthcare%20website" class="dbtn dbtn-preview" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> Request Demo
+          </a>
+          <a href="https://wa.me/8801878877746?text=I%20want%20a%20healthcare%20website" class="dbtn dbtn-order" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> Order Now
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Portfolio -->
+    <div class="demo-card">
+      <div class="demo-img-wrap">
+        <span class="demo-badge">Portfolio</span>
+        <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=1000&auto=format&fit=crop" alt="Creative Portfolio - সৃজনশীল পোর্টফোলিও" loading="lazy">
+        <div class="demo-overlay"><span class="demo-overlay-text">👆 Click to preview live</span></div>
+      </div>
+      <div class="demo-body">
+        <h3>Creative Portfolio</h3>
+        <p>ডিজাইনার, ফটোগ্রাফার ও শিল্পীদের জন্য সুন্দর পোর্টফোলিও ওয়েবসাইট। কাজের নমুনা প্রদর্শন সিস্টেম।</p>
+        <div class="demo-btns">
+          <a href="https://wa.me/8801878877746?text=I%20want%20a%20portfolio%20website" class="dbtn dbtn-preview" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> Request Demo
+          </a>
+          <a href="https://wa.me/8801878877746?text=I%20want%20a%20portfolio%20website" class="dbtn dbtn-order" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> Order Now
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fitness & Gym -->
+    <div class="demo-card">
+      <div class="demo-img-wrap">
+        <span class="demo-badge">Fitness</span>
+        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1000&auto=format&fit=crop" alt="Fitness Gym - ফিটনেস জিম" loading="lazy">
+        <div class="demo-overlay"><span class="demo-overlay-text">👆 Click to preview live</span></div>
+      </div>
+      <div class="demo-body">
+        <h3>Fitness & Gym Website</h3>
+        <p>জিম, যোগ স্টুডিও ও ফিটনেস সেন্টারের জন্য সম্পূর্ণ ওয়েবসাইট। সদস্যপদ, ক্লাস শিডিউল ও ট্রেইনার প্রদর্শন।</p>
+        <div class="demo-btns">
+          <a href="https://wa.me/8801878877746?text=I%20want%20a%20gym%20website" class="dbtn dbtn-preview" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> Request Demo
+          </a>
+          <a href="https://wa.me/8801878877746?text=I%20want%20a%20gym%20website" class="dbtn dbtn-order" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> Order Now
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Automotive -->
+    <div class="demo-card">
+      <div class="demo-img-wrap">
+        <span class="demo-badge">Automotive</span>
+        <img src="https://images.unsplash.com/photo-1552820728-8ac41f1ce891?q=80&w=1000&auto=format&fit=crop" alt="Car Showroom - গাড়ির শোরুম" loading="lazy">
+        <div class="demo-overlay"><span class="demo-overlay-text">👆 Click to preview live</span></div>
+      </div>
+      <div class="demo-body">
+        <h3>Car Showroom Website</h3>
+        <p>গাড়ি ডিলারশিপ ও শোরুমের জন্য আধুনিক ওয়েবসাইট। গাড়ির বিবরণ, মূল্য ও টেস্ট ড্রাইভ বুকিং।</p>
+        <div class="demo-btns">
+          <a href="https://wa.me/8801878877746?text=I%20want%20a%20car%20showroom%20website" class="dbtn dbtn-preview" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> Request Demo
+          </a>
+          <a href="https://wa.me/8801878877746?text=I%20want%20a%20car%20showroom%20website" class="dbtn dbtn-order" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> Order Now
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Wedding Planner -->
+    <div class="demo-card">
+      <div class="demo-img-wrap">
+        <span class="demo-badge">Event Planning</span>
+        <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?q=80&w=1000&auto=format&fit=crop" alt="Wedding Planner - বিবাহ পরিকল্পনা" loading="lazy">
+        <div class="demo-overlay"><span class="demo-overlay-text">👆 Click to preview live</span></div>
+      </div>
+      <div class="demo-body">
+        <h3>Wedding & Event Planning</h3>
+        <p>বিবাহ, অনুষ্ঠান ও ইভেন্ট প্ল্যানারদের জন্য পেশাদার ওয়েবসাইট। প্যাকেজ শো ও বুকিং সিস্টেম সহ।</p>
+        <div class="demo-btns">
+          <a href="https://wa.me/8801878877746?text=I%20want%20a%20wedding%20planner%20website" class="dbtn dbtn-preview" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> Request Demo
+          </a>
+          <a href="https://wa.me/8801878877746?text=I%20want%20a%20wedding%20planner%20website" class="dbtn dbtn-order" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> Order Now
+          </a>
+        </div>
+      </div>
     </div>
 
   </div>
-
-</div>
-
-<!-- DEMO 1 -->
-
-<div class="demo-card">
-
-<img src="https://i.postimg.cc/tCZkxMJG/Max-a-Create-a-premium-rea-(1).png">
-
-<div class="demo-content">
-
-<h3>The Barta Echo</h3>
-
-<p>
-Modern news and media website built with Blogger platform.
-</p>
-
-<div class="btn-group">
-
-<a href="https://thebartaecho.blogspot.com/"
-class="btn preview-btn"
-target="_blank">
-
-Live Preview
-
-</a>
-
-<a href="https://wa.me/8801878877746?text=I%20want%20a%20news%20website"
-class="btn order-btn"
-target="_blank">
-
-Order Now
-
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- DEMO 2 -->
-
-<div class="demo-card">
-
-<img src="https://i.postimg.cc/zX0WtwQH/Max-a-Create-a-premium-rea.png">
-
-<div class="demo-content">
-
-<h3>PhoneLab360</h3>
-
-<p>
-Professional mobile accessories and gadget ecommerce website.
-</p>
-
-<div class="btn-group">
-
-<a href="https://phonelab360.github.io/phonelab360/"
-class="btn preview-btn"
-target="_blank">
-
-Live Preview
-
-</a>
-
-<a href="https://wa.me/8801878877746?text=I%20want%20this%20website"
-class="btn order-btn"
-target="_blank">
-
-Order Now
-
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- DEMO 3 -->
-
-<div class="demo-card">
-
-<img src="https://i.postimg.cc/wTxc1Vvk/IMG-20260530-WA0001.jpg">
-
-<div class="demo-content">
-
-<h3>RoyalLychee BD</h3>
-
-<p>
-Premium Natural food website template.
-</p>
-
-<div class="btn-group">
-
-<a href="https://webnestbd.github.io/royallycheebd/"
-class="btn preview-btn">
-
-Live Preview
-
-</a>
-
-<a href="https://wa.me/8801878877746?text=I%20want%20this%20website"
-class="btn order-btn">
-
-Order Now
-
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- DEMO 4 -->
-
-<div class="demo-card">
-
-<img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1000&auto=format&fit=crop">
-
-<div class="demo-content">
-
-<h3>Restaurant Website</h3>
-
-<p>
-Beautiful restaurant landing page with modern UI.
-</p>
-
-<div class="btn-group">
-
-<a href="#"
-class="btn preview-btn">
-
-Live Preview
-
-</a>
-
-<a href="#"
-class="btn order-btn">
-
-Order Now
-
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- PLACEHOLDER DEMOS -->
-
-<div class="demo-card">
-
-<img src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?q=80&w=1000&auto=format&fit=crop">
-
-<div class="demo-content">
-
-<h3>Demo Website</h3>
-
-<p>
-Professional business website template.
-</p>
-
-<div class="btn-group">
-
-<a href="#"
-class="btn preview-btn">
-
-Live Preview
-
-</a>
-
-<a href="#"
-class="btn order-btn">
-
-Order Now
-
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="demo-card">
-
-<img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1000&auto=format&fit=crop">
-
-<div class="demo-content">
-
-<h3>Business Landing Page</h3>
-
-<p>
-Modern landing page design for startups and agencies.
-</p>
-
-<div class="btn-group">
-
-<a href="#"
-class="btn preview-btn">
-
-Live Preview
-
-</a>
-
-<a href="#"
-class="btn order-btn">
-
-Order Now
-
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
 </section>
 
 <!-- WHY US -->
+<section class="why-section" id="why">
+  <div class="section-header">
+    <div class="section-label">Why WebNest BD</div>
+    <h2 class="section-title">কেন <span>আমাদের বেছে নেবেন?</span></h2>
+    <p class="section-sub">হাজার অপশন থাকলেও WebNest BD কেন আলাদা — জেনে নিন।</p>
+  </div>
 
-<section class="why-us">
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+      <h3>100% Responsive</h3>
+      <p>Mobile, Tablet, Desktop — সব ডিভাইসে পারফেক্ট দেখাবে।</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon"><i class="fa-solid fa-bolt"></i></div>
+      <h3>Super Fast Loading</h3>
+      <p>অপটিমাইজড কোড। ওয়েবসাইট দ্রুত লোড হলে কাস্টমার থাকে।</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon"><i class="fa-solid fa-paint-brush"></i></div>
+      <h3>Unique Design</h3>
+      <p>কোনো টেমপ্লেট নয়, আপনার ব্র্যান্ডের জন্য কাস্টম ডিজাইন।</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon"><i class="fa-solid fa-headset"></i></div>
+      <h3>24/7 Support</h3>
+      <p>যেকোনো সমস্যায় WhatsApp-এ যোগাযোগ করুন। সবসময় আছি।</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon"><i class="fa-solid fa-clock"></i></div>
+      <h3>On-Time Delivery</h3>
+      <p>প্রতিশ্রুতি মতো সময়ে ডেলিভারি। কোনো দেরি নেই।</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon"><i class="fa-solid fa-bangladeshi-taka-sign"></i></div>
+      <h3>Affordable Price</h3>
+      <p>বাজেটের মধ্যে সর্বোচ্চ মানের কাজ। কোনো লুকানো চার্জ নেই।</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon"><i class="fa-solid fa-shield-halved"></i></div>
+      <h3>Secure & Reliable</h3>
+      <p>SSL সহ সিকিউর ওয়েবসাইট। আপনার ডেটা নিরাপদ।</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
+      <h3>SEO Friendly</h3>
+      <p>Google-এ র‍্যাংক করতে সাহায্য করবে এমন SEO অপটিমাইজড কোড।</p>
+    </div>
+  </div>
+</section>
 
-<h2 class="section-title">
-Why Choose WebNest BD
-</h2>
+<!-- PROCESS -->
+<section class="process-section">
+  <div class="section-header">
+    <div class="section-label">How It Works</div>
+    <h2 class="section-title">মাত্র <span>৪টি ধাপে</span> ওয়েবসাইট পান</h2>
+  </div>
 
-<div class="why-grid">
+  <div class="process-steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <h3>যোগাযোগ করুন</h3>
+      <p>WhatsApp-এ মেসেজ করুন। আপনার চাহিদা ও বাজেট জানান।</p>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <h3>প্ল্যানিং ও ডিজাইন</h3>
+      <p>আপনার ব্যবসা অনুযায়ী ডিজাইন ও ফিচার নির্ধারণ করা হয়।</p>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <h3>Development</h3>
+      <p>দ্রুততার সাথে প্রফেশনাল ওয়েবসাইট তৈরি করা হয়।</p>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <h3>Delivery & Support</h3>
+      <p>সময়মতো ডেলিভারি এবং আজীবন টেকনিক্যাল সাপোর্ট।</p>
+    </div>
+  </div>
+</section>
 
-<div class="why-card">
-
-<i class="fa-solid fa-mobile-screen"></i>
-
-<h3>Responsive Design</h3>
-
-</div>
-
-<div class="why-card">
-
-<i class="fa-solid fa-bolt"></i>
-
-<h3>Fast Loading</h3>
-
-</div>
-
-<div class="why-card">
-
-<i class="fa-solid fa-cart-shopping"></i>
-
-<h3>Ecommerce Ready</h3>
-
-</div>
-
-<div class="why-card">
-
-<i class="fa-solid fa-headset"></i>
-
-<h3>Customer Support</h3>
-
-</div>
-
-</div>
-
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-box">
+    <h2>আজই আপনার ওয়েবসাইট শুরু করুন 🚀</h2>
+    <p>আর দেরি না করে এখনই WhatsApp করুন। ফ্রি কনসালটেশন পাবেন।</p>
+    <div class="cta-btns">
+      <a href="https://wa.me/8801878877746" class="btn-primary" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i> WhatsApp: 01878-877746
+      </a>
+      <a href="#demos" class="btn-secondary">
+        <i class="fa-solid fa-eye"></i> ডেমো দেখুন
+      </a>
+    </div>
+  </div>
 </section>
 
 <!-- SOCIAL -->
-
 <section class="social-section">
-
-<h2>
-Connect With WebNest BD
-</h2>
-
-<div class="social-links">
-
-<a href="https://www.facebook.com/phonelab360"
-target="_blank">
-
-<i class="fa-brands fa-facebook-f"></i>
-
-</a>
-
-<a href=https://www.linkedin.com/in/mohammad-rakibul-hasan-4558ab248?utm_source=share_via&utm_content=profile&utm_medium=member_android"
-target="_blank">
-
-<i class="fa-brands fa-linkedin-in"></i>
-
-</a>
-
-<a href="https://github.com/"
-target="_blank">
-
-<i class="fa-brands fa-github"></i>
-
-</a>
-
-</div>
-
+  <h2>Connect With WebNest BD</h2>
+  <div class="social-links">
+    <a href="https://www.facebook.com/phonelab360" target="_blank" title="Facebook">
+      <i class="fa-brands fa-facebook-f"></i>
+    </a>
+    <a href="https://www.linkedin.com/in/mohammad-rakibul-hasan-4558ab248" target="_blank" title="LinkedIn">
+      <i class="fa-brands fa-linkedin-in"></i>
+    </a>
+    <a href="https://github.com/" target="_blank" title="GitHub">
+      <i class="fa-brands fa-github"></i>
+    </a>
+    <a href="https://wa.me/8801878877746" target="_blank" title="WhatsApp">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+  </div>
 </section>
 
 <!-- FOOTER -->
-
 <footer>
-
-<p>
-© 2026 WebNest BD. All Rights Reserved.
-</p>
-
+  <div class="footer-logo">Web<span>Nest</span> BD</div>
+  <p>© 2026 WebNest BD. All Rights Reserved.</p>
+  <div class="footer-links">
+    <a href="#">Home</a>
+    <a href="#demos">Demos</a>
+    <a href="#services">Services</a>
+    <a href="https://wa.me/8801878877746" target="_blank">Contact</a>
+  </div>
 </footer>
 
-<!-- WHATSAPP -->
-
-<a href="https://wa.me/8801878877746"
-class="whatsapp"
-target="_blank">
-
-<i class="fa-brands fa-whatsapp"></i>
-
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/8801878877746" class="wa-float" target="_blank" title="WhatsApp করুন">
+  <i class="fa-brands fa-whatsapp"></i>
 </a>
 
 </body>
-
 </html>
